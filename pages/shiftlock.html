@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShiftLock — Vérification des relevés d'heures ambulanciers | CAPSO</title>
+    <meta name="description"
+        content="ShiftLock permet aux ambulanciers de vérifier leurs relevés d'heures mensuels et hebdomadaires en toute confidentialité. OCR intelligent, la convention du transport sanitaire, données étanches.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .shiftlock-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shiftlock-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            color: var(--accent-gold);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .feature-row.reverse {
+            direction: rtl;
+        }
+
+        .feature-row.reverse>* {
+            direction: ltr;
+        }
+
+        .feature-visual {
+            background: var(--primary-navy);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(197, 160, 89, 0.1) 0%, transparent 60%);
+        }
+
+        .feature-visual i {
+            font-size: 5rem;
+            color: var(--accent-gold);
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-visual .visual-label {
+            display: block;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--accent-gold);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+            font-family: var(--font-heading);
+        }
+
+        .lock-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(14, 30, 54, 0.08);
+            color: var(--primary-navy);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .feature-row.reverse {
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav" id="mainNav">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <span class="brand-name">CAPSO</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#constat" class="nav-link">Le Constat</a></li>
+                <li><a href="../index.html#ecosysteme" class="nav-link">L'Écosystème</a></li>
+                <li><a href="shiftlock.html" class="nav-link text-gold">ShiftLock</a></li>
+                <li><a href="upswipe.html" class="nav-link">UPSWIPE</a></li>
+                <li><a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a></li>
+                <li><a href="https://myshiftlock.netlify.app" target="_blank" class="nav-cta nav-link">Accéder à
+                        l'app</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="shiftlock-hero">
+        <div class="container" style="position:relative;z-index:1;">
+            <div style="max-width:750px;">
+                <div class="app-badge">
+                    <i class="fas fa-lock"></i>
+                    Solution CAPSO — Salariés
+                </div>
+                <h1 style="color:white;font-size:3.5rem;line-height:1.1;margin-bottom:20px;">
+                    ShiftLock<br>
+                    <span style="color:var(--accent-gold);">Vos heures vérifiées.<br>Vos données protégées.</span>
+                </h1>
+                <p
+                    style="color:rgba(255,255,255,0.8);font-size:1.2rem;line-height:1.8;margin-bottom:40px;max-width:600px;">
+                    L'outil qui permet aux ambulanciers de vérifier leurs relevés d'heures mensuels et hebdomadaires en
+                    toute indépendance. Basé sur l'la convention du transport sanitaire. Strictement confidentiel.
+                </p>
+                <div style="display:flex;gap:20px;flex-wrap:wrap;">
+                    <a href="https://myshiftlock.netlify.app" target="_blank" class="cta-button-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Accéder à ShiftLock
+                    </a>
+                    <a href="#comment-ca-marche" class="cta-button-secondary">
+                        <i class="fas fa-info-circle"></i>
+                        Comment ça marche ?
+                    </a>
+                </div>
+                <div style="display:flex;gap:30px;margin-top:50px;flex-wrap:wrap;">
+                    <div class="lock-badge" style="background:rgba(255,255,255,0.1);color:white;">
+                        <i class="fas fa-shield-alt" style="color:var(--accent-gold);"></i>
+                        Données 100% étanches
+                    </div>
+                    <div class="lock-badge" style="background:rgba(255,255,255,0.1);color:white;">
+                        <i class="fas fa-file-contract" style="color:var(--accent-gold);"></i>
+                        la convention du transport sanitaire
+                    </div>
+                    <div class="lock-badge" style="background:rgba(255,255,255,0.1);color:white;">
+                        <i class="fas fa-camera" style="color:var(--accent-gold);"></i>
+                        OCR photo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE PROBLÈME -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="feature-row">
+                <div>
+                    <p
+                        style="color:var(--accent-gold);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:15px;">
+                        Le constat</p>
+                    <h2>Les relevés d'heures des ambulanciers sont parmi les plus complexes de France.</h2>
+                    <p style="color:var(--text-grey);line-height:1.8;margin-bottom:20px;">
+                        Heures de nuit, dimanches, jours fériés, coupures, gardes, temps de présence... L'la convention
+                        du transport sanitaire génère des relevés d'heures que même les gestionnaires expérimentés
+                        peinent à contrôler.
+                    </p>
+                    <p style="color:var(--text-grey);line-height:1.8;margin-bottom:25px;">
+                        Résultat : des erreurs passent. Pas toujours par mauvaise volonté — souvent par complexité du
+                        calcul. Les ambulanciers n'ont aucun outil pour vérifier leurs heures par eux-mêmes.
+                    </p>
+                    <div
+                        style="background:rgba(197,160,89,0.08);border-left:4px solid var(--accent-gold);padding:20px 25px;border-radius:0 8px 8px 0;">
+                        <strong>ShiftLock change ça.</strong> Un ambulancier peut désormais prendre une photo de son
+                        relevé d'heures et savoir en quelques secondes si son compteur est juste.
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span class="visual-label">Relevé d'heures la convention du transport sanitaire</span>
+                    <div
+                        style="margin-top:30px;display:flex;flex-direction:column;gap:12px;text-align:left;position:relative;z-index:1;">
+                        <div
+                            style="background:rgba(255,255,255,0.1);padding:12px 15px;border-radius:8px;font-size:0.9rem;">
+                            <i class="fas fa-moon" style="color:var(--accent-gold);margin-right:8px;"></i>Heures de nuit
+                            × majoration 25%
+                        </div>
+                        <div
+                            style="background:rgba(255,255,255,0.1);padding:12px 15px;border-radius:8px;font-size:0.9rem;">
+                            <i class="fas fa-sun" style="color:var(--accent-gold);margin-right:8px;"></i>Dimanches ×
+                            majoration 50%
+                        </div>
+                        <div
+                            style="background:rgba(255,255,255,0.1);padding:12px 15px;border-radius:8px;font-size:0.9rem;">
+                            <i class="fas fa-calendar-check"
+                                style="color:var(--accent-gold);margin-right:8px;"></i>Jours fériés × règles spécifiques
+                        </div>
+                        <div
+                            style="background:rgba(255,255,255,0.1);padding:12px 15px;border-radius:8px;font-size:0.9rem;">
+                            <i class="fas fa-clock" style="color:var(--accent-gold);margin-right:8px;"></i>Seuils hebdo
+                            35h / 43h
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMMENT ÇA MARCHE -->
+    <section id="comment-ca-marche" class="section-padding bg-offwhite">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Comment ça marche ?</h2>
+                <p class="section-subtitle">Trois étapes. Moins d'une minute.</p>
+            </div>
+            <div style="max-width:700px;margin:50px auto 0;">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h4>Photo du relevé d'heures</h4>
+                        <p style="color:var(--text-grey);">L'ambulancier prend une photo de son relevé d'heures mensuel
+                            ou hebdomadaire avec son téléphone. L'OCR extrait automatiquement les données.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h4>Calcul automatique la convention du transport sanitaire</h4>
+                        <p style="color:var(--text-grey);">ShiftLock recalcule chaque ligne selon les règles exactes de
+                            la convention collective : majorations, seuils hebdomadaires, heures supplémentaires, temps
+                            de présence.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h4>Résultat immédiat</h4>
+                        <p style="color:var(--text-grey);">Relevé correct ✓ ou écart détecté avec le détail précis.
+                            L'ambulancier sait exactement où est l'anomalie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÉTANCHÉITÉ — LA RÈGLE D'OR -->
+    <section class="section-padding bg-primary-navy" style="background:var(--primary-navy);">
+        <div class="container">
+            <div style="max-width:800px;margin:0 auto;text-align:center;color:white;">
+                <i class="fas fa-lock"
+                    style="font-size:4rem;color:var(--accent-gold);margin-bottom:30px;display:block;"></i>
+                <h2 style="color:white;margin-bottom:20px;">La règle d'or : l'étanchéité totale</h2>
+                <p style="color:rgba(255,255,255,0.8);font-size:1.15rem;line-height:1.8;margin-bottom:30px;">
+                    Les données saisies dans ShiftLock par les salariés ne transitent <strong
+                        style="color:var(--accent-gold);">jamais</strong> vers les outils de pilotage employeur. Jamais
+                    vers CapsoTime. Jamais vers la direction.
+                </p>
+                <p style="color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:40px;">
+                    C'est une séparation architecturale, pas une promesse commerciale. Les deux systèmes sont
+                    physiquement distincts. C'est ce qui rend ShiftLock crédible aux yeux des salariés — et donc utile.
+                </p>
+                <div
+                    style="display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;background:rgba(255,255,255,0.05);border-radius:12px;padding:30px;">
+                    <div style="text-align:center;">
+                        <i class="fas fa-user-circle"
+                            style="font-size:2.5rem;color:var(--accent-gold);margin-bottom:10px;display:block;"></i>
+                        <strong>ShiftLock</strong>
+                        <p style="font-size:0.85rem;opacity:0.7;margin-top:5px;">Données salariés<br>Strictement privées
+                        </p>
+                    </div>
+                    <div style="text-align:center;">
+                        <div
+                            style="border:2px dashed rgba(197,160,89,0.5);padding:15px 20px;border-radius:8px;color:var(--accent-gold);font-weight:700;font-size:0.9rem;">
+                            MUR<br>ÉTANCHE
+                        </div>
+                    </div>
+                    <div style="text-align:center;">
+                        <i class="fas fa-building"
+                            style="font-size:2.5rem;color:rgba(255,255,255,0.4);margin-bottom:10px;display:block;"></i>
+                        <strong style="opacity:0.6;">CapsoTime</strong>
+                        <p style="font-size:0.85rem;opacity:0.5;margin-top:5px;">Outils employeur<br>Accès zéro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding bg-white" style="text-align:center;">
+        <div class="container">
+            <h2 style="margin-bottom:15px;">Prêt à tester ShiftLock ?</h2>
+            <p style="color:var(--text-grey);font-size:1.1rem;margin-bottom:40px;">Accès direct. Pas d'inscription
+                requise pour commencer.</p>
+            <a href="https://myshiftlock.netlify.app" target="_blank" class="cta-button-primary"
+                style="font-size:1.1rem;padding:20px 45px;">
+                <i class="fas fa-external-link-alt"></i>
+                Accéder à ShiftLock
+            </a>
+            <p style="margin-top:20px;color:var(--text-grey);font-size:0.9rem;">
+                Ou découvrir <a href="upswipe.html" style="color:var(--accent-gold);font-weight:600;">UPSWIPE →</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-charcoal text-white" style="padding:40px 0 30px;">
+        <div class="container">
+            <div
+                style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;font-size:0.9rem;opacity:0.7;">
+                <span>© 2026 CAPSO — SASU. Tous droits réservés.</span>
+                <a href="../index.html" style="color:rgba(255,255,255,0.7);">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSWIPE — Recrutement ambulanciers | CAPSO</title>
+    <meta name="description"
+        content="UPSWIPE résout la pénurie de 15 000 ambulanciers en France. Matching Tinder-style entre candidats et structures sanitaires.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .upswipe-hero {
+            background: linear-gradient(135deg, #0e1e36 0%, #1a3a5c 60%, #0e1e36 100%);
+            color: white;
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upswipe-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .dual-world {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .world-card {
+            border-radius: 16px;
+            padding: 45px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .world-card.dark {
+            background: #1a1a2e;
+            color: white;
+        }
+
+        .world-card.light {
+            background: white;
+            color: var(--primary-navy);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(14, 30, 54, 0.1);
+        }
+
+        .world-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .world-card.dark .world-label {
+            color: var(--accent-gold);
+        }
+
+        .world-card.light .world-label {
+            color: var(--accent-gold);
+        }
+
+        .swipe-demo {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .swipe-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .swipe-btn.yes {
+            background: rgba(39, 174, 96, 0.15);
+            color: #27ae60;
+            border: 2px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .swipe-btn.no {
+            background: rgba(231, 76, 60, 0.15);
+            color: #e74c3c;
+            border: 2px solid rgba(231, 76, 60, 0.3);
+        }
+
+        .stat-big {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            line-height: 1;
+            font-family: var(--font-heading);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .problem-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--accent-gold);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .dual-world {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav" id="mainNav">
+        <div class="container nav-container">
+            <a href="../index.html" class="nav-brand">
+                <span class="brand-name">CAPSO</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#constat" class="nav-link">Le Constat</a></li>
+                <li><a href="../index.html#ecosysteme" class="nav-link">L'Écosystème</a></li>
+                <li><a href="shiftlock.html" class="nav-link">ShiftLock</a></li>
+                <li><a href="upswipe.html" class="nav-link text-gold">UPSWIPE</a></li>
+                <li><a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a></li>
+                <li><a href="https://app-three-rosy.vercel.app/" target="_blank" class="nav-cta nav-link">Accéder à
+                        l'app</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="upswipe-hero">
+        <div class="container" style="position:relative;z-index:1;">
+            <div style="max-width:750px;">
+                <div
+                    style="display:inline-flex;align-items:center;gap:10px;background:rgba(197,160,89,0.15);border:1px solid rgba(197,160,89,0.4);color:var(--accent-gold);padding:8px 20px;border-radius:25px;font-weight:700;font-size:0.85rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:25px;">
+                    <i class="fas fa-ambulance"></i>
+                    Solution CAPSO — Recrutement
+                </div>
+                <h1 style="color:white;font-size:3.5rem;line-height:1.1;margin-bottom:20px;">
+                    UPSWIPE<br>
+                    <span style="color:var(--accent-gold);">Le recrutement ambulancier<br>enfin efficace.</span>
+                </h1>
+                <p
+                    style="color:rgba(255,255,255,0.8);font-size:1.2rem;line-height:1.8;margin-bottom:40px;max-width:600px;">
+                    15 000 postes vacants en France. Un matching intelligent entre ambulanciers et structures
+                    sanitaires. Swipe, match, recrute.
+                </p>
+                <div style="display:flex;gap:20px;flex-wrap:wrap;">
+                    <a href="https://app-three-rosy.vercel.app/" target="_blank" class="cta-button-primary">
+                        <i class="fas fa-external-link-alt"></i>
+                        Accéder à UPSWIPE
+                    </a>
+                    <a href="#comment-ca-marche" class="cta-button-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        Voir comment ça marche
+                    </a>
+                </div>
+                <div style="display:flex;gap:40px;margin-top:60px;flex-wrap:wrap;">
+                    <div>
+                        <div class="stat-big">15 000</div>
+                        <div
+                            style="color:rgba(255,255,255,0.7);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;margin-top:5px;">
+                            postes vacants en France</div>
+                    </div>
+                    <div style="width:1px;background:rgba(255,255,255,0.2);"></div>
+                    <div>
+                        <div class="stat-big">35 624</div>
+                        <div
+                            style="color:rgba(255,255,255,0.7);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;margin-top:5px;">
+                            communes françaises intégrées</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE PROBLÈME -->
+    <section class="section-padding bg-offwhite">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Une pénurie structurelle</h2>
+                <p class="section-subtitle">Le transport sanitaire fait face à une crise de recrutement sans précédent.
+                </p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <i class="fas fa-user-slash"
+                        style="font-size:2.5rem;color:var(--accent-gold);margin-bottom:15px;display:block;"></i>
+                    <h4>15 000 postes non pourvus</h4>
+                    <p style="color:var(--text-grey);margin-top:10px;">Le secteur perd des ambulanciers qualifiés plus
+                        vite qu'il n'en forme. Les structures fonctionnent en tension permanente.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-clock"
+                        style="font-size:2.5rem;color:var(--accent-gold);margin-bottom:15px;display:block;"></i>
+                    <h4>Processus de recrutement archaïques</h4>
+                    <p style="color:var(--text-grey);margin-top:10px;">CV par email, annonces papier, bouche à oreille.
+                        En 2025, le secteur recrute encore comme en 1995.</p>
+                </div>
+                <div class="problem-card">
+                    <i class="fas fa-map-marked-alt"
+                        style="font-size:2.5rem;color:var(--accent-gold);margin-bottom:15px;display:block;"></i>
+                    <h4>Mauvais matching géographique</h4>
+                    <p style="color:var(--text-grey);margin-top:10px;">Des candidats qualifiés existent à 20 km. Mais
+                        personne ne les trouve. La proximité géographique est un levier inexploité.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LES DEUX MONDES -->
+    <section id="comment-ca-marche" class="section-padding bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Deux interfaces. Un seul objectif.</h2>
+                <p class="section-subtitle">UPSWIPE a été conçu pour les deux parties du recrutement.</p>
+            </div>
+            <div class="dual-world">
+                <div class="world-card dark">
+                    <span class="world-label">Interface candidat — Mobile</span>
+                    <h3 style="color:white;margin-bottom:15px;">Le côté ambulancier</h3>
+                    <p style="color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:25px;">
+                        Interface mobile dark mode. Le candidat voit des offres de postes près de chez lui. Il swipe — à
+                        droite pour manifester son intérêt, à gauche pour passer.
+                    </p>
+                    <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:20px;margin-bottom:20px;">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:15px;">
+                            <div
+                                style="width:45px;height:45px;background:var(--accent-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+                                <i class="fas fa-ambulance" style="color:white;"></i>
+                            </div>
+                            <div>
+                                <strong style="color:white;">Structure ASA — Rennes</strong>
+                                <p style="font-size:0.85rem;color:rgba(255,255,255,0.6);">CDI · Temps plein · 8 km</p>
+                            </div>
+                        </div>
+                        <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);">Poste d'ambulancier DEA, équipe de
+                            nuit...</p>
+                    </div>
+                    <div class="swipe-demo">
+                        <div class="swipe-btn yes"><i class="fas fa-heart"></i> Je suis intéressé</div>
+                        <div class="swipe-btn no"><i class="fas fa-times"></i> Passer</div>
+                    </div>
+                </div>
+                <div class="world-card light">
+                    <span class="world-label">Interface recruteur — Dashboard</span>
+                    <h3 style="color:var(--primary-navy);margin-bottom:15px;">Le côté structure</h3>
+                    <p style="color:var(--text-grey);line-height:1.8;margin-bottom:25px;">
+                        Dashboard light mode pour le responsable RH ou le dirigeant. Visualisation des candidats qui ont
+                        matché, filtrage par localisation, qualification, disponibilité.
+                    </p>
+                    <div style="background:var(--offwhite);border-radius:12px;padding:20px;margin-bottom:20px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;">
+                            <strong style="color:var(--primary-navy);">Nouveaux matchs</strong>
+                            <span
+                                style="background:var(--accent-gold);color:white;padding:3px 10px;border-radius:12px;font-size:0.8rem;font-weight:700;">+3
+                                aujourd'hui</span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:10px;">
+                            <div
+                                style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:white;border-radius:8px;border:1px solid rgba(14,30,54,0.08);">
+                                <span style="font-size:0.9rem;color:var(--charcoal);">Candidat DEA — Rennes (12
+                                    km)</span>
+                                <i class="fas fa-check-circle" style="color:#27ae60;"></i>
+                            </div>
+                            <div
+                                style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:white;border-radius:8px;border:1px solid rgba(14,30,54,0.08);">
+                                <span style="font-size:0.9rem;color:var(--charcoal);">Candidat AFGSU — Saint-Malo (28
+                                    km)</span>
+                                <i class="fas fa-check-circle" style="color:#27ae60;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                        <span class="tag" style="background:rgba(14,30,54,0.08);color:var(--primary-navy);">Filtres
+                            géo</span>
+                        <span class="tag"
+                            style="background:rgba(14,30,54,0.08);color:var(--primary-navy);">Qualifications</span>
+                        <span class="tag"
+                            style="background:rgba(14,30,54,0.08);color:var(--primary-navy);">Disponibilité</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LE MÉCANISME VIRAL -->
+    <section class="section-padding bg-offwhite">
+        <div class="container">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex-wrap:wrap;">
+                <div>
+                    <p
+                        style="color:var(--accent-gold);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:15px;">
+                        Le levier viral</p>
+                    <h2>Le QR code dans les couloirs d'hôpital</h2>
+                    <p style="color:var(--text-grey);line-height:1.8;margin-bottom:20px;">
+                        Les ambulanciers passent des heures dans les couloirs d'hôpitaux à attendre. C'est là que se
+                        forment les réseaux informels du secteur.
+                    </p>
+                    <p style="color:var(--text-grey);line-height:1.8;margin-bottom:25px;">
+                        UPSWIPE exploite cette réalité : un QR code affiché dans les zones d'attente permet à un
+                        ambulancier d'en recruter un autre en quelques secondes. La cooptation entre pairs, numérisée.
+                    </p>
+                    <div
+                        style="background:rgba(197,160,89,0.08);border-left:4px solid var(--accent-gold);padding:20px 25px;border-radius:0 8px 8px 0;">
+                        <strong>35 624 communes françaises</strong> intégrées depuis les données officielles La Poste.
+                        La recherche géographique est précise à la ville près.
+                    </div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="background:var(--primary-navy);border-radius:16px;padding:50px;display:inline-block;">
+                        <div style="background:white;border-radius:12px;padding:25px;margin-bottom:20px;">
+                            <i class="fas fa-qrcode" style="font-size:6rem;color:var(--primary-navy);"></i>
+                        </div>
+                        <p style="color:rgba(255,255,255,0.8);font-size:0.95rem;font-style:italic;">
+                            "Scanne et rejoins UPSWIPE"
+                        </p>
+                        <p
+                            style="color:var(--accent-gold);font-size:0.8rem;margin-top:8px;text-transform:uppercase;letter-spacing:1px;">
+                            Couloirs CHU · Urgences · Blocs
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding bg-navy" style="text-align:center;">
+        <div class="container">
+            <h2 style="color:white;margin-bottom:15px;">Tester UPSWIPE maintenant</h2>
+            <p style="color:rgba(255,255,255,0.7);font-size:1.1rem;margin-bottom:40px;">
+                Accès direct à la plateforme. Côté candidat ou côté recruteur.
+            </p>
+            <a href="https://app-three-rosy.vercel.app/" target="_blank" class="cta-button-primary"
+                style="font-size:1.1rem;padding:20px 45px;">
+                <i class="fas fa-external-link-alt"></i>
+                Accéder à UPSWIPE
+            </a>
+            <p style="margin-top:20px;color:rgba(255,255,255,0.5);font-size:0.9rem;">
+                Ou découvrir <a href="shiftlock.html" style="color:var(--accent-gold);font-weight:600;">ShiftLock →</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-charcoal text-white" style="padding:40px 0 30px;">
+        <div class="container">
+            <div
+                style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;font-size:0.9rem;opacity:0.7;">
+                <span>© 2026 CAPSO — SASU. Tous droits réservés.</span>
+                <a href="../index.html" style="color:rgba(255,255,255,0.7);">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></button>
+    <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

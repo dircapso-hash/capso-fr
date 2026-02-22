@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPSO - VOIR · ANTICIPER · DÉCIDER | Transport Sanitaire</title>
+    <meta name="description"
+        content="CAPSO transforme les dirigeants du transport sanitaire en architectes d'écosystèmes performants. 11 ans d'expertise opérationnelle.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- SPLASH SCREEN VIDEO -->
+    <div id="splashScreen" class="splash-screen" style="display: none;">
+        <video id="splashVideo" autoplay muted playsinline preload="auto"
+            style="width:100%;height:100%;object-fit:contain;">
+            <source src="assets/videos/capso2.mp4" type="video/mp4">
+        </video>
+        <button id="skipSplash" class="skip-splash-btn">Passer l'introduction</button>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav" id="mainNav">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="assets/images/logo-capso.png" alt="CAPSO" class="nav-logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#constat" class="nav-link">Le Constat</a></li>
+                <li><a href="#ecosysteme" class="nav-link">L'Écosystème</a></li>
+                <li><a href="pages/shiftlock.html" class="nav-link">ShiftLock</a></li>
+                <li><a href="pages/upswipe.html" class="nav-link">UPSWIPE</a></li>
+                <li><a href="pages/qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a></li>
+                <li><a href="#audit" class="nav-cta nav-link">Audit Gratuit</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="main-title">
+                <span class="title-line">L'ingénierie de la</span>
+                <span class="title-line text-gold">performance sanitaire.</span>
+            </h1>
+            <div class="hero-mantra">
+                <span class="mantra-word">VOIR</span>
+                <span class="text-gold">·</span>
+                <span class="mantra-word">ANTICIPER</span>
+                <span class="text-gold">·</span>
+                <span class="mantra-word">DÉCIDER</span>
+            </div>
+            <p class="subtitle">
+                Dans un secteur où l'urgence est la norme, nous construisons la structure qui permet de ne plus la
+                subir.
+            </p>
+            <div class="hero-cta-container">
+                <a href="#audit" class="cta-button-primary">
+                    <i class="fas fa-search-dollar"></i>
+                    Demander un audit gratuit
+                </a>
+                <a href="#ecosysteme" class="cta-button-secondary">
+                    <i class="fas fa-play-circle"></i>
+                    Découvrir l'écosystème
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">11</span>
+                    <span class="stat-label">Ans d'expertise terrain</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Piliers intégrés</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Site pilote validé</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <a href="#audit" class="scroll-down">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- AUDIT CTA -->
+    <section id="audit" class="section-audit bg-light">
+        <div class="container">
+            <div class="audit-card">
+                <div class="audit-content">
+                    <span class="audit-badge">Offre de lancement — Gratuit</span>
+                    <h2>Votre audit de performance<br><span class="text-gold">offert et sans engagement</span></h2>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-chart-line text-gold"></i>
+                            <span>Diagnostic complet de votre gestion des heures et du social</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt text-gold"></i>
+                            <span>Identification des risques de contentieux la convention du transport sanitaire</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-road text-gold"></i>
+                            <span>Feuille de route personnalisée vers la performance</span>
+                        </li>
+                    </ul>
+                    <div class="guarantee">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <strong>Confidentialité garantie.</strong>
+                            <p>Vos données ne transitent jamais vers un éditeur logiciel tiers. CAPSO est une structure
+                                indépendante.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="audit-form">
+                    <h3>Demander votre audit</h3>
+                    <form id="auditForm">
+                        <div class="form-group">
+                            <input type="text" name="nom" placeholder="Votre nom et prénom *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Votre email professionnel *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="tel" placeholder="Votre téléphone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="structure" placeholder="Nom de votre structure *" required>
+                        </div>
+                        <div class="form-group">
+                            <select name="taille">
+                                <option value="">Taille de votre flotte</option>
+                                <option value="1-5">1 à 5 véhicules</option>
+                                <option value="6-15">6 à 15 véhicules</option>
+                                <option value="16-30">16 à 30 véhicules</option>
+                                <option value="30+">Plus de 30 véhicules</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit" style="width:100%; justify-content:center;">
+                            <i class="fas fa-paper-plane"></i>
+                            Demander mon audit gratuit
+                        </button>
+                        <p style="text-align:center; margin-top:15px; font-size:0.85rem; color:var(--text-grey);">
+                            Ou prenez directement RDV →
+                            <a href="#" id="openCalendly" class="text-gold" style="font-weight:600;">Choisir un
+                                créneau</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSTAT -->
+    <section id="constat" class="section-padding bg-offwhite">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">La Réalité du Terrain</h2>
+                <p class="section-subtitle">Trois vérités que tout dirigeant du transport sanitaire connaît, mais que
+                    personne ne résout vraiment.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon bg-navy">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3 class="card-title">La Mission</h3>
+                    <p class="card-text">Vous portez une responsabilité de service public. Vos équipes doivent être
+                        disponibles 24h/24, 365 jours par an. L'organisation des plannings est une équation permanente.
+                    </p>
+                    <div class="card-footer">
+                        <span class="tag tag-mission">Responsabilité de service public</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon bg-charcoal">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3 class="card-title">La Contrainte</h3>
+                    <p class="card-text">L'la convention du transport sanitaire est l'une des conventions collectives
+                        les plus complexes de France. Heures de nuit, dimanches, coupures, repas : chaque ligne de paie
+                        est un risque contentieux potentiel.</p>
+                    <div class="card-footer">
+                        <span class="tag tag-contrainte">Convention la convention du transport sanitaire</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background:var(--accent-gold);">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3 class="card-title">Le Paradoxe</h3>
+                    <p class="card-text">Vous pilotez à vue. Les outils métiers vous donnent des données
+                        opérationnelles, mais aucun ne vous offre une vision consolidée de la performance sociale,
+                        financière et humaine.</p>
+                    <div class="card-footer">
+                        <span class="tag tag-paradoxe">Le point aveugle du secteur</span>
+                    </div>
+                </div>
+            </div>
+            <div class="conclusion-box">
+                <h3>La réponse de CAPSO</h3>
+                <p class="lead">On ne vend pas des outils. On installe une capacité de pilotage supérieure.</p>
+                <a href="#ecosysteme" class="btn-link">Découvrir l'écosystème <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ECOSYSTÈME -->
+    <section id="ecosysteme" class="section-padding bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">L'Écosystème CAPSO</h2>
+                <p class="section-subtitle">Trois piliers conçus pour s'articuler. Une seule trajectoire : de la
+                    formation à la performance mesurée.</p>
+            </div>
+            <div class="ecosysteme-grid">
+                <!-- PILIER 1 : ACADEMY -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <div class="pillar-number text-navy">01</div>
+                        <div class="pillar-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="pillar-title text-navy">Academy</h3>
+                        <span class="pillar-mantra text-navy">Former pour comprendre</span>
+                    </div>
+                    <div class="pillar-body">
+                        <p class="pillar-intro">Des formations certifiées Qualiopi, finançables OPCO. Conçues par des
+                            praticiens du secteur, pour des praticiens du secteur.</p>
+                        <div class="pillar-modules">
+                            <h4>Modules phares</h4>
+                            <ul>
+                                <li>Maîtrise de l'la convention du transport sanitaire</li>
+                                <li>Pilotage de la masse salariale</li>
+                                <li>Gestion des plannings complexes</li>
+                                <li>Prévention des risques contentieux</li>
+                            </ul>
+                        </div>
+                        <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(14,30,54,0.1);">
+                            <span class="tag" style="background:rgba(14,30,54,0.1);color:var(--primary-navy);">Qualiopi
+                                · OPCO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILIER 2 : SOLUTIONS -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <div class="pillar-number text-gold">02</div>
+                        <div class="pillar-icon"><i class="fas fa-layer-group"></i></div>
+                        <h3 class="pillar-title text-gold">Solutions</h3>
+                        <span class="pillar-mantra text-gold">Les capteurs de performance</span>
+                    </div>
+                    <div class="pillar-body">
+                        <p class="pillar-intro">Deux outils SaaS indépendants de tout éditeur métier. Conçus pour
+                            mesurer ce que les autres outils ne voient pas.</p>
+                        <div class="pillar-tools">
+                            <div class="tool-item">
+                                <div class="tool-icon" style="background:rgba(197,160,89,0.1);">
+                                    <i class="fas fa-clock text-gold"></i>
+                                </div>
+                                <div>
+                                    <strong>CapsoTime</strong>
+                                    <p style="font-size:0.9rem;color:var(--text-grey);">Pilotage temps réel des heures.
+                                        Conformité la convention du transport sanitaire automatisée.</p>
+                                </div>
+                            </div>
+                            <div class="tool-item">
+                                <div class="tool-icon" style="background:rgba(197,160,89,0.1);">
+                                    <i class="fas fa-file-medical text-gold"></i>
+                                </div>
+                                <div>
+                                    <strong>CapsoScan</strong>
+                                    <p style="font-size:0.9rem;color:var(--text-grey);">Numérisation et validation des
+                                        documents CPAM. OCR intelligent.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- PILIER 3 : 360 -->
+                <div class="pillar-card">
+                    <div class="pillar-header">
+                        <div class="pillar-number" style="opacity:0.1;">03</div>
+                        <div class="pillar-icon" style="color:var(--charcoal);"><i class="fas fa-compass"></i></div>
+                        <h3 class="pillar-title">360</h3>
+                        <span class="pillar-mantra" style="color:var(--charcoal);">Décider sur des faits</span>
+                    </div>
+                    <div class="pillar-body">
+                        <p class="pillar-intro">Le conseil stratégique et opérationnel. Nous intervenons là où les
+                            données révèlent les leviers de performance.</p>
+                        <div class="pillar-modules">
+                            <h4>Missions types</h4>
+                            <ul>
+                                <li>Audit organisationnel complet</li>
+                                <li>Restructuration sociale & RH</li>
+                                <li>Accompagnement dirigeant</li>
+                                <li>Préparation aux contrôles URSSAF</li>
+                            </ul>
+                        </div>
+                        <div style="margin-top:auto; padding-top:20px; border-top:1px solid rgba(51,51,51,0.1);">
+                            <span class="tag" style="background:rgba(51,51,51,0.1);color:var(--charcoal);">Consulting ·
+                                Sur-mesure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tunnel -->
+            <div
+                style="background:var(--primary-navy);color:white;border-radius:12px;padding:50px;text-align:center;margin-top:50px;">
+                <h3 style="color:white;margin-bottom:20px;">Le tunnel de valeur CAPSO</h3>
+                <div
+                    style="display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;font-family:var(--font-heading);font-weight:700;font-size:1.1rem;">
+                    <span style="background:rgba(255,255,255,0.1);padding:15px 25px;border-radius:8px;">
+                        <i class="fas fa-graduation-cap"
+                            style="color:var(--accent-gold);display:block;font-size:1.5rem;margin-bottom:8px;"></i>
+                        Formation Academy
+                    </span>
+                    <i class="fas fa-arrow-right" style="color:var(--accent-gold);font-size:1.5rem;"></i>
+                    <span style="background:rgba(255,255,255,0.1);padding:15px 25px;border-radius:8px;">
+                        <i class="fas fa-layer-group"
+                            style="color:var(--accent-gold);display:block;font-size:1.5rem;margin-bottom:8px;"></i>
+                        CapsoTime / CapsoScan
+                    </span>
+                    <i class="fas fa-arrow-right" style="color:var(--accent-gold);font-size:1.5rem;"></i>
+                    <span style="background:rgba(255,255,255,0.1);padding:15px 25px;border-radius:8px;">
+                        <i class="fas fa-compass"
+                            style="color:var(--accent-gold);display:block;font-size:1.5rem;margin-bottom:8px;"></i>
+                        Consulting 360
+                    </span>
+                </div>
+                <p style="margin-top:25px;opacity:0.8;max-width:600px;margin-left:auto;margin-right:auto;">
+                    Chaque pilier crée l'adhérence pour le suivant. C'est une architecture de confiance, pas une
+                    collection d'outils.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTHODOLOGIE -->
+    <section id="methodologie" class="section-padding bg-offwhite">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Notre Méthode</h2>
+                <p class="section-subtitle">11 ans d'opérations sanitaires distillés en une méthodologie structurée.
+                    Testée. Validée.</p>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin:50px 0;">
+                <div
+                    style="background:white;padding:35px;border-radius:12px;box-shadow:var(--shadow-sm);border-left:4px solid var(--primary-navy);">
+                    <div style="font-size:2.5rem;color:var(--primary-navy);margin-bottom:20px;"><i
+                            class="fas fa-binoculars"></i></div>
+                    <h4>VOIR</h4>
+                    <p style="color:var(--text-grey);">Installer les capteurs. Mesurer ce qui existe vraiment, pas ce
+                        qu'on suppose. Audit initial complet.</p>
+                </div>
+                <div
+                    style="background:white;padding:35px;border-radius:12px;box-shadow:var(--shadow-sm);border-left:4px solid var(--accent-gold);">
+                    <div style="font-size:2.5rem;color:var(--accent-gold);margin-bottom:20px;"><i
+                            class="fas fa-satellite-dish"></i></div>
+                    <h4>ANTICIPER</h4>
+                    <p style="color:var(--text-grey);">Interpréter les signaux faibles. Identifier les risques avant
+                        qu'ils deviennent des sinistres.</p>
+                </div>
+                <div
+                    style="background:white;padding:35px;border-radius:12px;box-shadow:var(--shadow-sm);border-left:4px solid var(--charcoal);">
+                    <div style="font-size:2.5rem;color:var(--charcoal);margin-bottom:20px;"><i
+                            class="fas fa-chess-king"></i></div>
+                    <h4>DÉCIDER</h4>
+                    <p style="color:var(--text-grey);">Arbitrer sur des faits, pas sur des ressentis. Chaque décision
+                        tracée, chaque impact mesuré.</p>
+                </div>
+            </div>
+            <div style="background:white;border-radius:12px;padding:50px;box-shadow:var(--shadow-sm);margin-top:20px;">
+                <div style="display:flex;gap:50px;align-items:center;flex-wrap:wrap;">
+                    <div style="flex:1;min-width:300px;">
+                        <h3>Le site pilote</h3>
+                        <p style="color:var(--text-grey);line-height:1.8;">
+                            Notre méthodologie n'est pas née dans un bureau de consulting. Elle a été forgée, testée et
+                            affinée pendant plus d'une décennie sur un site pilote réel, dans les conditions
+                            d'exploitation les plus exigeantes du secteur.
+                        </p>
+                        <p style="color:var(--text-grey);line-height:1.8;margin-top:15px;">
+                            C'est ce laboratoire vivant qui a permis d'identifier les capteurs indispensables à la
+                            performance — ceux qu'aucun éditeur logiciel ne peut voir, parce qu'ils sont dans les
+                            failles entre les outils.
+                        </p>
+                        <div style="margin-top:25px;display:flex;gap:15px;flex-wrap:wrap;">
+                            <span class="tag" style="background:rgba(14,30,54,0.1);color:var(--primary-navy);">11 ans de
+                                données réelles</span>
+                            <span class="tag" style="background:rgba(197,160,89,0.1);color:var(--accent-gold);">Taux de
+                                refus CPAM : 0,04%</span>
+                        </div>
+                    </div>
+                    <div style="flex:0 0 200px;text-align:center;">
+                        <div
+                            style="background:var(--primary-navy);color:white;border-radius:50%;width:180px;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto;">
+                            <span style="font-size:3rem;font-weight:800;color:var(--accent-gold);">0,04%</span>
+                            <span style="font-size:0.8rem;opacity:0.8;text-transform:uppercase;letter-spacing:1px;">Taux
+                                refus<br>vs 2,5% secteur</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPE / FONDATEUR -->
+    <section id="equipe" class="section-padding bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Le Fondateur</h2>
+            </div>
+            <div class="founder-section" style="display:flex;gap:60px;align-items:center;flex-wrap:wrap;">
+                <div class="founder-image" style="flex:0 0 300px;">
+                    <div
+                        style="background:var(--light-bg);border-radius:12px;height:350px;display:flex;align-items:center;justify-content:center;font-size:5rem;color:var(--primary-navy);">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div style="flex:1;min-width:300px;">
+                    <h3>Grégory Poupard</h3>
+                    <span class="tag"
+                        style="background:rgba(14,30,54,0.1);color:var(--primary-navy);margin-bottom:25px;display:inline-block;">Fondateur
+                        CAPSO · Expert Transport Sanitaire</span>
+                    <p style="color:var(--text-grey);line-height:1.8;margin-bottom:20px;">
+                        11 ans dans les opérations du transport sanitaire. Chaque poste de la chaîne a été occupé — de
+                        l'ambulancier à la direction stratégique. Cette trajectoire n'est pas un CV, c'est la source de
+                        légitimité de tout ce que CAPSO propose.
+                    </p>
+                    <p style="color:var(--text-grey);line-height:1.8;margin-bottom:30px;">
+                        La conviction est simple : les dirigeants du secteur méritent des outils conçus par des gens qui
+                        ont vécu leurs contraintes, pas par des développeurs qui les ont observées de loin.
+                    </p>
+                    <blockquote
+                        style="border-left:4px solid var(--accent-gold);padding-left:25px;font-style:italic;font-size:1.1rem;color:var(--primary-navy);font-weight:600;">
+                        "On structure vos bases. On installe les capteurs. On construit votre croissance sur des faits."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-padding bg-navy text-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title" style="color:white;">Passons à l'action</h2>
+                <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Votre audit de performance est gratuit.
+                    Sans engagement. Réponse sous 24h.</p>
+            </div>
+            <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+                <div>
+                    <h3 style="color:white;margin-bottom:25px;">Trois raisons de nous contacter</h3>
+                    <div style="display:flex;flex-direction:column;gap:25px;">
+                        <div style="display:flex;gap:20px;align-items:flex-start;">
+                            <div
+                                style="background:var(--accent-gold);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">
+                                1</div>
+                            <div>
+                                <h4 style="color:white;">Indépendance totale</h4>
+                                <p style="opacity:0.7;">CAPSO n'est lié à aucun éditeur logiciel. Notre conseil est
+                                    objectif par structure.</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:20px;align-items:flex-start;">
+                            <div
+                                style="background:var(--accent-gold);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">
+                                2</div>
+                            <div>
+                                <h4 style="color:white;">Connaissance métier réelle</h4>
+                                <p style="opacity:0.7;">On parle votre langue. la convention du transport sanitaire,
+                                    CPAM, VSL, BLS — on n'a pas besoin qu'on nous explique.</p>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:20px;align-items:flex-start;">
+                            <div
+                                style="background:var(--accent-gold);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">
+                                3</div>
+                            <div>
+                                <h4 style="color:white;">Résultats mesurables</h4>
+                                <p style="opacity:0.7;">On ne livre pas des recommandations. On installe des mécanismes
+                                    qui produisent des résultats vérifiables.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    style="background:rgba(255,255,255,0.05);border-radius:12px;padding:40px;border:1px solid rgba(255,255,255,0.1);">
+                    <h3 style="color:white;margin-bottom:25px;">Nous contacter directement</h3>
+                    <div style="display:flex;flex-direction:column;gap:20px;">
+                        <a href="mailto:dir.capso@gmail.com"
+                            style="display:flex;gap:15px;align-items:center;color:rgba(255,255,255,0.8);font-size:1.1rem;">
+                            <i class="fas fa-envelope"
+                                style="color:var(--accent-gold);font-size:1.3rem;width:30px;"></i>
+                            dir.capso@gmail.com
+                        </a>
+                        <a href="tel:+33665785406"
+                            style="display:flex;gap:15px;align-items:center;color:rgba(255,255,255,0.8);font-size:1.1rem;">
+                            <i class="fas fa-phone" style="color:var(--accent-gold);font-size:1.3rem;width:30px;"></i>
+                            06 65 78 54 06
+                        </a>
+                        <a href="https://linkedin.com/in/" target="_blank"
+                            style="display:flex;gap:15px;align-items:center;color:rgba(255,255,255,0.8);font-size:1.1rem;">
+                            <i class="fab fa-linkedin"
+                                style="color:var(--accent-gold);font-size:1.3rem;width:30px;"></i>
+                            LinkedIn CAPSO
+                        </a>
+                    </div>
+                    <div style="margin-top:35px;padding-top:35px;border-top:1px solid rgba(255,255,255,0.1);">
+                        <a href="#audit" class="cta-button-primary" style="width:100%;justify-content:center;">
+                            <i class="fas fa-calendar-check"></i>
+                            Planifier mon audit gratuit
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-charcoal text-white" style="padding:60px 0 30px;">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="brand-name" style="font-size:1.8rem;font-family:var(--font-heading);">CAPSO</span>
+                    <p class="footer-mantra">VOIR · ANTICIPER · DÉCIDER</p>
+                    <p style="color:rgba(255,255,255,0.6);margin-top:15px;line-height:1.8;font-size:0.95rem;">
+                        L'ingénierie de la performance pour le transport sanitaire français.
+                    </p>
+                    <div>
+                        <a href="https://linkedin.com" class="social-link" target="_blank"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom:20px;">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#constat">Le Constat</a></li>
+                        <li><a href="#ecosysteme">L'Écosystème</a></li>
+                        <li><a href="#methodologie">Méthodologie</a></li>
+                        <li><a href="pages/qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom:20px;">Solutions</h4>
+                    <ul class="footer-links">
+                        <li><a href="#ecosysteme">CAPSO Academy</a></li>
+                        <li><a href="#ecosysteme">CapsoTime</a></li>
+                        <li><a href="#ecosysteme">CapsoScan</a></li>
+                        <li><a href="#ecosysteme">Consulting 360</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom:20px;">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:dir.capso@gmail.com">dir.capso@gmail.com</a></li>
+                        <li><a href="#audit">Demander un audit</a></li>
+                        <li><a href="pages/mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="pages/confidentialite.html">Confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 CAPSO — SASU. Tous droits réservés.</span>
+                <div class="footer-legal">
+                    <a href="pages/mentions-legales.html">Mentions légales</a>
+                    <a href="pages/confidentialite.html">Politique de confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
