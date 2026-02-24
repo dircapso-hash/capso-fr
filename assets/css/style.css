@@ -32,6 +32,9 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background: var(--white);
+    /* Empêche le texte de dépasser sur mobile */
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 h1,
@@ -77,6 +80,34 @@ img {
     height: auto;
     display: block;
 }
+
+/* Empêche les éléments de déborder horizontalement */
+video,
+iframe,
+embed,
+object {
+    max-width: 100%;
+}
+
+/* Evite le dépassement dans les cartes */
+.card,
+.pillar-card,
+.audit-card,
+.conclusion-box,
+.testimonial-card,
+.pillar-body,
+.card-text,
+.pillar-intro {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Stat items : pas de min-width bloquant sur mobile */
+.stat-item {
+    min-width: 0;
+    flex: 1 0 80px;
+}
+
 
 .lead {
     font-size: 1.25rem;
@@ -197,6 +228,13 @@ img {
     display: flex;
     gap: 35px;
     align-items: center;
+    list-style: none;
+}
+
+/* Éléments drawer : masqués sur desktop */
+.nav-links .mobile-drawer-header,
+.nav-links .mobile-section-label {
+    display: none;
 }
 
 .nav-link {
@@ -255,6 +293,37 @@ img {
     font-size: 1.5rem;
     color: var(--primary-navy);
     cursor: pointer;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.nav-toggle:hover {
+    background: rgba(14, 30, 54, 0.08);
+}
+
+/* Overlay menu mobile */
+.nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(14, 30, 54, 0.6);
+    z-index: 998;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+    opacity: 1;
 }
 
 /* --- HERO SECTION --- */
@@ -1580,6 +1649,21 @@ blockquote {
     transform: translateY(-5px);
 }
 
+/* --- MOBILE GLOBAL FIXES --- */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* Flèche tunnel de valeur en vertical sur mobile */
+.tunnel-flex>.fa-arrow-right {
+    display: inline-flex;
+}
+
 /* --- RESPONSIVE --- */
 @media (max-width: 1200px) {
     .container {
@@ -1653,39 +1737,182 @@ blockquote {
 }
 
 @media (max-width: 768px) {
+
+    /* === MENU DRAWER MOBILE === */
     .main-nav .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(320px, 85vw);
+        height: 100vh;
+        height: 100dvh;
         background: var(--white);
         flex-direction: column;
-        padding: 30px;
-        box-shadow: var(--shadow-md);
-        gap: 25px;
+        padding: 0;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 0;
     }
 
     .main-nav .nav-links.active {
-        display: flex;
-    }
-
-    .nav-toggle {
+        right: 0;
         display: block;
     }
 
+    .nav-toggle {
+        display: flex;
+    }
+
+    /* Header du drawer */
+    .nav-links .mobile-drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 25px;
+        background: var(--primary-navy);
+        color: white;
+        border-bottom: 3px solid var(--accent-gold);
+    }
+
+    /* Sections du drawer */
+    .nav-links .mobile-section-label {
+        display: block;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-grey);
+        padding: 20px 25px 8px;
+        background: var(--offwhite);
+    }
+
+    /* Liens standards */
+    .nav-links li {
+        border-bottom: 1px solid rgba(14, 30, 54, 0.06);
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 1rem;
+        padding: 16px 25px;
+        border-bottom: none;
+        color: var(--primary-navy);
+        font-weight: 600;
+        width: 100%;
+        transition: background 0.2s ease, padding-left 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:active {
+        background: rgba(14, 30, 54, 0.04);
+        padding-left: 30px;
+    }
+
+    /* Items apps (ShiftLock / UPSWIPE) */
+    .nav-link.nav-app-link {
+        background: rgba(197, 160, 89, 0.05);
+        border-left: 3px solid var(--accent-gold);
+        padding-left: 22px;
+    }
+
+    .nav-link.nav-app-link:hover,
+    .nav-link.nav-app-link:active {
+        background: rgba(197, 160, 89, 0.12);
+        padding-left: 28px;
+    }
+
+    /* CTA dans le drawer */
+    .nav-links .nav-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 20px 10px;
+        padding: 16px 20px;
+        border-radius: 8px;
+        background: var(--accent-gold);
+        color: white !important;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        border-bottom: none !important;
+        border-left: none !important;
+    }
+
+    .nav-links .nav-cta:hover {
+        background: #b08d4b;
+        padding-left: 20px;
+    }
+
+    /* Supprimer le soulignement ::after dans le drawer */
+    .nav-link::after {
+        display: none;
+    }
+
+    /* L'overflow est géré par le JS lors de l'ouverture du drawer */
+    .nav-overlay {
+        display: none;
+    }
+
+    /* Correction : nav-app-link badge flex */
+    .nav-link.nav-app-link {
+        justify-content: flex-start;
+    }
+
     .main-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+
+    .hero-mantra {
+        font-size: 1.1rem;
+        gap: 12px;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 35px;
     }
 
     .hero-cta-container {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
+        align-items: stretch;
+    }
+
+    .cta-button-primary,
+    .cta-button-secondary {
+        width: 100%;
+        justify-content: center;
+        padding: 16px 25px;
+        font-size: 0.95rem;
     }
 
     .hero-stats {
-        flex-direction: column;
-        gap: 30px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding-top: 30px;
+    }
+
+    .stat-item {
+        min-width: 100px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
     }
 
     .cards-grid,
@@ -1713,17 +1940,71 @@ blockquote {
     }
 
     .section-padding {
-        padding: 60px 0;
+        padding: 55px 0;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        line-height: 1.6;
     }
 
     .hero-section {
-        padding-top: 100px;
-        min-height: 90vh;
+        padding-top: 90px;
+        min-height: 100svh;
+    }
+
+    /* Tunnel de valeur en colonne sur mobile */
+    .tunnel-flex {
+        flex-direction: column !important;
+        gap: 15px !important;
+        align-items: stretch !important;
+    }
+
+    .tunnel-flex>i.fa-arrow-right {
+        transform: rotate(90deg);
+        align-self: center;
+    }
+
+    /* Section contact */
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+        gap: 35px !important;
+    }
+
+    /* Methodologie site pilote */
+    .site-pilote-flex {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    /* Fondateur */
+    .founder-section {
+        flex-direction: column !important;
+        gap: 30px !important;
+    }
+
+    .founder-image {
+        flex: 0 0 auto !important;
+        max-width: 280px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .founder-image>div {
+        height: 250px !important;
     }
 
     .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 
     .footer-bottom {
@@ -1740,43 +2021,103 @@ blockquote {
     .back-to-top {
         bottom: 20px;
         right: 20px;
-        width: 50px;
-        height: 50px;
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+
+    /* Audit card */
+    .audit-card {
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .audit-form {
+        padding: 25px 20px;
+    }
+
+    /* Conclusion box */
+    .conclusion-box {
+        padding: 35px 25px;
+    }
+
+    .conclusion-box .lead {
+        font-size: 1.1rem;
+    }
+
+    /* Pillar cards */
+    .pillar-card {
+        padding: 30px 20px;
+    }
+
+    /* Cards */
+    .card {
+        padding: 30px 20px;
+    }
+
+    /* Section guarantee */
+    .guarantee {
+        flex-direction: row;
+        gap: 12px;
     }
 }
 
 @media (max-width: 576px) {
     .container {
-        padding: 0 20px;
+        padding: 0 18px;
     }
 
     h1 {
-        font-size: 2.2rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    .hero-logo {
-        height: 80px;
-    }
-
-    .main-title {
         font-size: 2rem;
     }
 
-    .hero-mantra {
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h3 {
+        font-size: 1.35rem;
+    }
+
+    h4 {
         font-size: 1.1rem;
-        gap: 10px;
+    }
+
+    .hero-logo {
+        height: 70px;
+    }
+
+    .main-title {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+
+    .hero-mantra {
+        font-size: 1rem;
+        gap: 8px;
+        letter-spacing: 0.5px;
     }
 
     .subtitle {
-        font-size: 1.1rem;
+        font-size: 1rem;
+        line-height: 1.65;
+        margin-bottom: 30px;
+    }
+
+    .lead {
+        font-size: 1.05rem;
+    }
+
+    .section-padding {
+        padding: 45px 0;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
     }
 
     .audit-card,
@@ -1784,23 +2125,144 @@ blockquote {
     .pillar-card,
     .card,
     .cta-card {
-        padding: 30px 20px;
+        padding: 25px 18px;
     }
 
     .audit-form {
-        padding: 30px 20px;
+        padding: 25px 18px;
+    }
+
+    .audit-content h2 {
+        font-size: 1.7rem;
+    }
+
+    .benefits-list li {
+        font-size: 1rem;
+        gap: 12px;
     }
 
     .experience-grid {
         grid-template-columns: 1fr;
     }
 
+    .hero-stats {
+        gap: 15px;
+    }
+
     .hero-stats .stat-item {
-        min-width: 120px;
+        min-width: 90px;
     }
 
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+    }
+
+    .cta-button-primary,
+    .cta-button-secondary,
+    .btn-submit {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+        gap: 8px;
+    }
+
+    .pillar-intro {
+        font-size: 1rem;
+    }
+
+    .pillar-title {
+        font-size: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Tunnel de valeur vertical sur très petits écrans */
+    [style*="display:flex"][style*="justify-content:center"][style*="gap:20px"] {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    blockquote {
+        font-size: 1rem;
+        padding-left: 15px;
+    }
+
+    .conclusion-box {
+        padding: 25px 18px;
+    }
+
+    /* Amélioration lisibilité des tool-items */
+    .tool-item {
+        align-items: flex-start;
+    }
+
+    .guarantee {
+        padding: 15px;
+    }
+
+    .guarantee p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+/* --- BREAKPOINT TRÈS PETIT (iPhone SE, vieux Android) --- */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .main-title {
+        font-size: 1.7rem;
+    }
+
+    .hero-mantra {
+        font-size: 0.9rem;
+        gap: 6px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .audit-card,
+    .pillar-card,
+    .card {
+        padding: 20px 15px;
+    }
+
+    .cta-button-primary,
+    .cta-button-secondary {
+        padding: 13px 16px;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-stats {
+        gap: 10px;
+    }
+
+    .stat-number {
+        font-size: 1.9rem;
     }
 }
 

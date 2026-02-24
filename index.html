@@ -33,6 +33,9 @@
         <button id="skipSplash" class="skip-splash-btn">Passer l'introduction</button>
     </div>
 
+    <!-- NAV OVERLAY (mobile) -->
+    <div class="nav-overlay" id="navOverlay"></div>
+
     <!-- NAVIGATION -->
     <nav class="main-nav" id="mainNav">
         <div class="container nav-container">
@@ -40,14 +43,38 @@
                 <img src="assets/images/logo-capso.png" alt="CAPSO" class="nav-logo">
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#constat" class="nav-link">Le Constat</a></li>
-                <li><a href="#ecosysteme" class="nav-link">L'Écosystème</a></li>
-                <li><a href="pages/shiftlock.html" class="nav-link">ShiftLock</a></li>
-                <li><a href="pages/upswipe.html" class="nav-link">UPSWIPE</a></li>
-                <li><a href="pages/qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a></li>
-                <li><a href="#audit" class="nav-cta nav-link">Audit Gratuit</a></li>
+                <!-- Drawer Header (visible mobile uniquement) -->
+                <li class="mobile-drawer-header">
+                    <span
+                        style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;letter-spacing:1px;">CAPSO</span>
+                    <button id="navClose"
+                        style="background:rgba(255,255,255,0.15);border:none;color:white;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;"
+                        aria-label="Fermer le menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <!-- Navigation -->
+                <span class="mobile-section-label">Navigation</span>
+                <li><a href="#constat" class="nav-link"><i class="fas fa-chart-bar"
+                            style="width:18px;color:var(--accent-gold);"></i>Le Constat</a></li>
+                <li><a href="#ecosysteme" class="nav-link"><i class="fas fa-layer-group"
+                            style="width:18px;color:var(--accent-gold);"></i>L'Écosystème</a></li>
+                <li><a href="pages/qui-sommes-nous.html" class="nav-link"><i class="fas fa-users"
+                            style="width:18px;color:var(--accent-gold);"></i>Qui sommes-nous ?</a></li>
+                <!-- Nos Applications -->
+                <span class="mobile-section-label">Nos Applications</span>
+                <li><a href="pages/shiftlock.html" class="nav-link nav-app-link"><i class="fas fa-lock"
+                            style="width:18px;color:var(--accent-gold);"></i>ShiftLock <span
+                            style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
+                </li>
+                <li><a href="pages/upswipe.html" class="nav-link nav-app-link"><i class="fas fa-ambulance"
+                            style="width:18px;color:var(--accent-gold);"></i>UPSWIPE <span
+                            style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
+                </li>
+                <!-- CTA -->
+                <li><a href="#audit" class="nav-cta nav-link"><i class="fas fa-search-dollar"></i>Audit Gratuit</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -353,7 +380,7 @@
             <div
                 style="background:var(--primary-navy);color:white;border-radius:12px;padding:50px;text-align:center;margin-top:50px;">
                 <h3 style="color:white;margin-bottom:20px;">Le tunnel de valeur CAPSO</h3>
-                <div
+                <div class="tunnel-flex"
                     style="display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;font-family:var(--font-heading);font-weight:700;font-size:1.1rem;">
                     <span style="background:rgba(255,255,255,0.1);padding:15px 25px;border-radius:8px;">
                         <i class="fas fa-graduation-cap"
@@ -416,7 +443,7 @@
                 </div>
             </div>
             <div style="background:white;border-radius:12px;padding:50px;box-shadow:var(--shadow-sm);margin-top:20px;">
-                <div style="display:flex;gap:50px;align-items:center;flex-wrap:wrap;">
+                <div class="site-pilote-flex" style="display:flex;gap:50px;align-items:center;flex-wrap:wrap;">
                     <div style="flex:1;min-width:300px;">
                         <h3>Le site pilote</h3>
                         <p style="color:var(--text-grey);line-height:1.8;">

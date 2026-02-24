@@ -138,11 +138,45 @@
             .problem-grid {
                 grid-template-columns: 1fr;
             }
+
+            .upswipe-hero {
+                padding: 110px 0 60px;
+            }
+
+            .world-card {
+                padding: 30px 25px;
+            }
+
+            .hero-stats-upswipe {
+                flex-direction: column !important;
+                gap: 20px !important;
+            }
+
+            .hero-stats-upswipe>div[style*="width:1px"] {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .upswipe-hero {
+                padding: 100px 0 50px;
+            }
+
+            .world-card {
+                padding: 25px 20px;
+            }
+
+            .stat-big {
+                font-size: 2.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
+
+    <!-- NAV OVERLAY (mobile) -->
+    <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- NAVIGATION -->
     <nav class="main-nav" id="mainNav">
@@ -151,15 +185,35 @@
                 <span class="brand-name">CAPSO</span>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html#constat" class="nav-link">Le Constat</a></li>
-                <li><a href="../index.html#ecosysteme" class="nav-link">L'Écosystème</a></li>
-                <li><a href="shiftlock.html" class="nav-link">ShiftLock</a></li>
-                <li><a href="upswipe.html" class="nav-link text-gold">UPSWIPE</a></li>
-                <li><a href="qui-sommes-nous.html" class="nav-link">Qui sommes-nous ?</a></li>
-                <li><a href="https://app-three-rosy.vercel.app/" target="_blank" class="nav-cta nav-link">Accéder à
-                        l'app</a></li>
+                <li class="mobile-drawer-header">
+                    <span
+                        style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;letter-spacing:1px;">CAPSO</span>
+                    <button id="navClose"
+                        style="background:rgba(255,255,255,0.15);border:none;color:white;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;"
+                        aria-label="Fermer">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </li>
+                <span class="mobile-section-label">Navigation</span>
+                <li><a href="../index.html#constat" class="nav-link"><i class="fas fa-chart-bar"
+                            style="width:18px;color:var(--accent-gold);"></i>Le Constat</a></li>
+                <li><a href="../index.html#ecosysteme" class="nav-link"><i class="fas fa-layer-group"
+                            style="width:18px;color:var(--accent-gold);"></i>L'Écosystème</a></li>
+                <li><a href="qui-sommes-nous.html" class="nav-link"><i class="fas fa-users"
+                            style="width:18px;color:var(--accent-gold);"></i>Qui sommes-nous ?</a></li>
+                <span class="mobile-section-label">Nos Applications</span>
+                <li><a href="shiftlock.html" class="nav-link nav-app-link"><i class="fas fa-lock"
+                            style="width:18px;color:var(--accent-gold);"></i>ShiftLock <span
+                            style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
+                </li>
+                <li><a href="upswipe.html" class="nav-link nav-app-link"><i class="fas fa-ambulance"
+                            style="width:18px;color:var(--accent-gold);"></i>UPSWIPE <span
+                            style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
+                </li>
+                <li><a href="https://app-three-rosy.vercel.app/" target="_blank" class="nav-cta nav-link"><i
+                            class="fas fa-external-link-alt"></i>Accéder à l'app</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle">
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -174,7 +228,7 @@
                     <i class="fas fa-ambulance"></i>
                     Solution CAPSO — Recrutement
                 </div>
-                <h1 style="color:white;font-size:3.5rem;line-height:1.1;margin-bottom:20px;">
+                <h1 style="color:white;font-size:clamp(2rem, 7vw, 3.5rem);line-height:1.15;margin-bottom:20px;">
                     UPSWIPE<br>
                     <span style="color:var(--accent-gold);">Le recrutement ambulancier<br>enfin efficace.</span>
                 </h1>
@@ -193,7 +247,7 @@
                         Voir comment ça marche
                     </a>
                 </div>
-                <div style="display:flex;gap:40px;margin-top:60px;flex-wrap:wrap;">
+                <div class="hero-stats-upswipe" style="display:flex;gap:40px;margin-top:60px;flex-wrap:wrap;">
                     <div>
                         <div class="stat-big">15 000</div>
                         <div
@@ -325,7 +379,8 @@
     <!-- LE MÉCANISME VIRAL -->
     <section class="section-padding bg-offwhite">
         <div class="container">
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;flex-wrap:wrap;">
+            <div
+                style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:60px;align-items:center;">
                 <div>
                     <p
                         style="color:var(--accent-gold);font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:15px;">
