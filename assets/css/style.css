@@ -187,34 +187,34 @@ object {
     top: 0;
     z-index: 1000;
     height: 70px;
+    min-height: 70px;
+    max-height: 70px;
     padding: 0;
     transition: var(--transition);
+    overflow: hidden;
 }
 
 .main-nav.scrolled {
-    height: 60px;
+    height: 70px;
+    min-height: 70px;
     box-shadow: var(--shadow-md);
 }
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-}
-
-.nav-brand {
-    display: flex;
+    justify-content: center;
     align-items: center;
     height: 100%;
     gap: 0;
 }
 
+/* .nav-brand supprimé — logo retiré de toutes les pages */
+.nav-brand {
+    display: none;
+}
+
 .nav-logo {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    display: block;
+    display: none;
 }
 
 .brand-name {
@@ -223,13 +223,15 @@ object {
     font-size: 1.5rem;
     color: var(--primary-navy);
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 .nav-links {
     display: flex;
-    gap: 35px;
+    gap: 20px;
     align-items: center;
     list-style: none;
+    flex-wrap: nowrap;
 }
 
 /* Éléments drawer : masqués sur desktop */
@@ -247,6 +249,7 @@ object {
     letter-spacing: 0.5px;
     position: relative;
     padding: 5px 0;
+    white-space: nowrap;
 }
 
 .nav-link::after {
@@ -271,10 +274,12 @@ object {
 .nav-cta {
     background: var(--accent-gold);
     color: var(--white) !important;
-    padding: 12px 25px;
-    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 50px;
     font-weight: 700;
     letter-spacing: 1px;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .nav-cta:hover {
