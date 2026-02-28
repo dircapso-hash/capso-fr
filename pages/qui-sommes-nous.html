@@ -14,14 +14,71 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Calendly link widget -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- End Calendly link widget -->
 </head>
 
 <body>
+
+    <!-- ===== MODAL AUDIT / CONTACT ===== -->
+    <div id="auditModal" role="dialog" aria-modal="true" aria-labelledby="auditModalTitle">
+        <div class="audit-modal-overlay"></div>
+        <div class="audit-modal-box">
+            <div class="audit-modal-header">
+                <button class="audit-modal-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
+                <div class="audit-modal-badge"><i class="fas fa-star"></i> Offre de lancement — Gratuit</div>
+                <h2 id="auditModalTitle">Demander votre audit<br><span style="color:var(--accent-gold);">de performance
+                        offert</span></h2>
+                <p>Réponse sous 24h. Aucun engagement. Confidentialité garantie.</p>
+            </div>
+            <div class="audit-modal-body">
+                <form id="modalAuditForm">
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" name="nom" placeholder="Nom et prénom *" required>
+                        </div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Email professionnel *"
+                                required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><input type="tel" name="tel" placeholder="Téléphone"></div>
+                        <div class="form-group"><input type="text" name="structure" placeholder="Nom de la structure *"
+                                required></div>
+                    </div>
+                    <div class="form-group">
+                        <select name="taille" required>
+                            <option value="">Taille de votre flotte *</option>
+                            <option value="1-5">1 à 5 véhicules</option>
+                            <option value="6-15">6 à 15 véhicules</option>
+                            <option value="16-30">16 à 30 véhicules</option>
+                            <option value="30+">Plus de 30 véhicules</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="audit-modal-submit"><i class="fas fa-paper-plane"></i> Demander mon
+                        audit gratuit</button>
+                </form>
+                <div class="audit-modal-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Demande envoyée !</h3>
+                    <p>Nous vous contacterons dans les 24h pour planifier votre audit.</p>
+                </div>
+                <div class="audit-modal-divider">ou</div>
+                <a href="https://calendly.com/dircapso/audit-performance" target="_blank"
+                    class="audit-modal-calendly-btn"><i class="fas fa-calendar-alt"></i> Choisir un créneau →</a>
+                <div class="audit-modal-guarantee"><i class="fas fa-lock"></i><span><strong>Confidentialité
+                            garantie.</strong> CAPSO est une structure indépendante.</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- ===== FIN MODAL ===== -->
 
     <!-- NAV OVERLAY (mobile) -->
     <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- NAVIGATION -->
+
     <nav class="main-nav" id="mainNav">
         <div class="container nav-container">
             <ul class="nav-links" id="navLinks">
@@ -51,10 +108,10 @@
                             style="width:18px;color:var(--accent-gold);"></i>UPSWIPE <span
                             style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
                 </li>
-                <li><a href="../index.html#contact" class="nav-link"><i class="fas fa-envelope"
+                <li><a href="../index.html#contact-section" class="nav-link"><i class="fas fa-envelope"
                             style="width:18px;color:var(--accent-gold);"></i>Contact</a></li>
-                <li><a href="../index.html#contact" class="nav-cta nav-link"><i class="fas fa-search-dollar"></i>Audit
-                        Gratuit</a></li>
+                <li><a href="#" onclick="openAuditModal();return false;" class="nav-cta nav-link"><i
+                            class="fas fa-search-dollar"></i>Audit Gratuit</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
                 <i class="fas fa-bars"></i>

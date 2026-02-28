@@ -323,4 +323,59 @@ document.addEventListener('DOMContentLoaded', function () {
             document.body.style.overflow = '';
         }
     }
+
+    // -------------------------------------------------------
+    // Modal Audit / Contact — 100% natif, zéro dépendance
+    // -------------------------------------------------------
+    const auditModal = document.getElementById('auditModal');
+
+    window.openAuditModal = function () {
+        if (!auditModal) return;
+        const form = auditModal.querySelector('#modalAuditForm');
+        const success = auditModal.querySelector('.audit-modal-success');
+        if (form) form.style.display = '';
+        if (success) success.style.display = 'none';
+        auditModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    function closeAuditModal() {
+        if (!auditModal) return;
+        auditModal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (auditModal) {
+        auditModal.querySelector('.audit-modal-overlay')
+            .addEventListener('click', closeAuditModal);
+
+        const closeBtn = auditModal.querySelector('.audit-modal-close');
+        if (closeBtn) closeBtn.addEventListener('click', closeAuditModal);
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && auditModal.classList.contains('active')) {
+                closeAuditModal();
+            }
+        });
+
+        const modalForm = auditModal.querySelector('#modalAuditForm');
+        if (modalForm) {
+            modalForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const btn = this.querySelector('.audit-modal-submit');
+                const origHtml = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+                btn.disabled = true;
+                setTimeout(function () {
+                    const formEl = auditModal.querySelector('#modalAuditForm');
+                    const success = auditModal.querySelector('.audit-modal-success');
+                    if (formEl) formEl.style.display = 'none';
+                    if (success) success.style.display = 'block';
+                    btn.innerHTML = origHtml;
+                    btn.disabled = false;
+                    modalForm.reset();
+                }, 1400);
+            });
+        }
+    }
 });

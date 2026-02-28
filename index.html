@@ -20,9 +20,70 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Calendly link widget CSS & JS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 
 <body>
+
+    <!-- ===== MODAL AUDIT / CONTACT ===== -->
+    <div id="auditModal" role="dialog" aria-modal="true" aria-labelledby="auditModalTitle">
+        <div class="audit-modal-overlay"></div>
+        <div class="audit-modal-box">
+            <div class="audit-modal-header">
+                <button class="audit-modal-close" aria-label="Fermer"><i class="fas fa-times"></i></button>
+                <div class="audit-modal-badge"><i class="fas fa-star"></i> Offre de lancement — Gratuit</div>
+                <h2 id="auditModalTitle">Demander votre audit<br><span style="color:var(--accent-gold);">de performance
+                        offert</span></h2>
+                <p>Réponse sous 24h. Aucun engagement. Confidentialité garantie.</p>
+            </div>
+            <div class="audit-modal-body">
+                <form id="modalAuditForm">
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" name="nom" placeholder="Nom et prénom *" required>
+                        </div>
+                        <div class="form-group"><input type="email" name="email" placeholder="Email professionnel *"
+                                required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><input type="tel" name="tel" placeholder="Téléphone"></div>
+                        <div class="form-group"><input type="text" name="structure" placeholder="Nom de la structure *"
+                                required></div>
+                    </div>
+                    <div class="form-group">
+                        <select name="taille" required>
+                            <option value="">Taille de votre flotte *</option>
+                            <option value="1-5">1 à 5 véhicules</option>
+                            <option value="6-15">6 à 15 véhicules</option>
+                            <option value="16-30">16 à 30 véhicules</option>
+                            <option value="30+">Plus de 30 véhicules</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="audit-modal-submit">
+                        <i class="fas fa-paper-plane"></i> Demander mon audit gratuit
+                    </button>
+                </form>
+                <div class="audit-modal-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Demande envoyée !</h3>
+                    <p>Nous vous contacterons dans les 24h pour planifier votre audit de performance.</p>
+                </div>
+                <div class="audit-modal-divider">ou</div>
+                <a href="https://calendly.com/dircapso/audit-performance" target="_blank"
+                    class="audit-modal-calendly-btn">
+                    <i class="fas fa-calendar-alt"></i> Choisir directement un créneau →
+                </a>
+                <div class="audit-modal-guarantee">
+                    <i class="fas fa-lock"></i>
+                    <span><strong>Confidentialité garantie.</strong> Vos données ne transitent jamais vers un éditeur
+                        logiciel tiers. CAPSO est une structure indépendante.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ===== FIN MODAL ===== -->
 
     <!-- SPLASH SCREEN VIDEO -->
     <div id="splashScreen" class="splash-screen" style="display: none;">
@@ -66,9 +127,10 @@
                             style="width:18px;color:var(--accent-gold);"></i>UPSWIPE <span
                             style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
                 </li>
-                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"
+                <li><a href="#contact-section" class="nav-link"><i class="fas fa-envelope"
                             style="width:18px;color:var(--accent-gold);"></i>Contact</a></li>
-                <li><a href="#contact" class="nav-cta nav-link"><i class="fas fa-search-dollar"></i>Audit Gratuit</a>
+                <li><a href="#" onclick="openAuditModal();return false;" class="nav-cta nav-link"><i
+                            class="fas fa-search-dollar"></i>Audit Gratuit</a>
                 </li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
@@ -97,7 +159,7 @@
                 subir.
             </p>
             <div class="hero-cta-container">
-                <a href="#audit" class="cta-button-primary">
+                <a href="#" onclick="openAuditModal();return false;" class="cta-button-primary">
                     <i class="fas fa-search-dollar"></i>
                     Demander un audit gratuit
                 </a>
@@ -121,11 +183,7 @@
                 </div>
             </div>
         </div>
-        <div class="hero-scroll">
-            <a href="#audit" class="scroll-down">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
+
     </section>
 
 
@@ -134,7 +192,8 @@
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title">La Réalité du Terrain</h2>
-                <p class="section-subtitle">Trois vérités que tout dirigeant du transport sanitaire connaît, mais que
+                <p class="section-subtitle">Trois vérités que tout dirigeant du transport sanitaire connaît, mais
+                    que
                     personne ne résout vraiment.</p>
             </div>
             <div class="cards-grid">
@@ -144,7 +203,8 @@
                     </div>
                     <h3 class="card-title">La Mission</h3>
                     <p class="card-text">Vous portez une responsabilité de service public. Vos équipes doivent être
-                        disponibles 24h/24, 365 jours par an. L'organisation des plannings est une équation permanente.
+                        disponibles 24h/24, 365 jours par an. L'organisation des plannings est une équation
+                        permanente.
                     </p>
                     <div class="card-footer">
                         <span class="tag tag-mission">Responsabilité de service public</span>
@@ -156,7 +216,8 @@
                     </div>
                     <h3 class="card-title">La Contrainte</h3>
                     <p class="card-text">La convention du transport sanitaire est l'une des conventions collectives
-                        les plus complexes de France. Heures de nuit, dimanches, coupures, repas : chaque ligne de paie
+                        les plus complexes de France. Heures de nuit, dimanches, coupures, repas : chaque ligne de
+                        paie
                         est un risque contentieux potentiel.</p>
                     <div class="card-footer">
                         <span class="tag tag-contrainte">Convention la convention du transport sanitaire</span>
@@ -201,8 +262,10 @@
                         <span class="pillar-mantra text-navy">STRUCTURER LES FONDATIONS</span>
                     </div>
                     <div class="pillar-body">
-                        <p class="pillar-intro">Les problèmes de performance viennent rarement d'un manque de travail.
-                            Ils viennent d'un manque de structure. CAPSO Academy forme vos équipes — du back-office à la
+                        <p class="pillar-intro">Les problèmes de performance viennent rarement d'un manque de
+                            travail.
+                            Ils viennent d'un manque de structure. CAPSO Academy forme vos équipes — du back-office
+                            à la
                             direction — pour installer des process fiables et des données sur lesquelles vous pouvez
                             vous appuyer.</p>
                         <div class="pillar-modules">
@@ -232,7 +295,8 @@
                         <span class="pillar-mantra text-gold">Les capteurs de performance</span>
                     </div>
                     <div class="pillar-body">
-                        <p class="pillar-intro">Deux outils SaaS indépendants, conçus pour mesurer ce que vos logiciels
+                        <p class="pillar-intro">Deux outils SaaS indépendants, conçus pour mesurer ce que vos
+                            logiciels
                             métier ne voient pas.</p>
                         <div class="pillar-tools">
                             <div class="tool-item">
@@ -253,8 +317,10 @@
                                 <div>
                                     <strong>CapsoTime</strong>
                                     <p style="font-size:0.9rem;color:var(--text-grey);">Copilote de votre temps de
-                                        travail et de votre masse salariale. Alertes en temps réel sur les dérives de
-                                        planning, conformité convention du transport sanitaire automatisée, impact masse
+                                        travail et de votre masse salariale. Alertes en temps réel sur les dérives
+                                        de
+                                        planning, conformité convention du transport sanitaire automatisée, impact
+                                        masse
                                         salariale calculé instantanément.</p>
                                 </div>
                             </div>
@@ -271,26 +337,31 @@
                         <span class="pillar-mantra" style="color:var(--charcoal);">CHANGER VOTRE TRAJECTOIRE</span>
                     </div>
                     <div class="pillar-body">
-                        <p class="pillar-intro">Quand les enjeux sont trop importants pour improviser. CAPSO 360 est un
+                        <p class="pillar-intro">Quand les enjeux sont trop importants pour improviser. CAPSO 360 est
+                            un
                             accompagnement sur-mesure pour les dirigeants qui veulent reprendre le contrôle de leur
                             organisation.</p>
                         <div class="pillar-modules">
                             <div style="margin-bottom: 15px;">
                                 <strong style="color:var(--charcoal);">Audit d'organisation</strong>
                                 <p style="font-size:0.9rem;color:var(--text-grey);margin-top:5px;line-height:1.5;">
-                                    Régulation, facturation, climat social, conformité RH. On identifie les fuites de
+                                    Régulation, facturation, climat social, conformité RH. On identifie les fuites
+                                    de
                                     rentabilité cachées et on livre un plan d'actions prioritaires.</p>
                             </div>
                             <div style="margin-bottom: 15px;">
                                 <strong style="color:var(--charcoal);">Gouvernance & Management des nouvelles
                                     générations</strong>
-                                <p style="font-size:0.9rem;color:var(--text-grey);margin-top:5px;line-height:1.5;">Les
-                                    équipes ont changé. Les attentes aussi. On adapte votre management pour engager des
+                                <p style="font-size:0.9rem;color:var(--text-grey);margin-top:5px;line-height:1.5;">
+                                    Les
+                                    équipes ont changé. Les attentes aussi. On adapte votre management pour engager
+                                    des
                                     collaborateurs qui exigent sens, clarté et reconnaissance — sans sacrifier la
                                     performance opérationnelle.</p>
                             </div>
                             <div>
-                                <strong style="color:var(--charcoal);">Structuration des paliers de croissance</strong>
+                                <strong style="color:var(--charcoal);">Structuration des paliers de
+                                    croissance</strong>
                                 <p style="font-size:0.9rem;color:var(--text-grey);margin-top:5px;line-height:1.5;">
                                     Passer de 10 à 30 véhicules change la nature de votre métier. On construit la
                                     feuille de route, on adapte la gouvernance, on crée les processus qui vous
@@ -352,7 +423,8 @@
                     <div style="font-size:2.5rem;color:var(--primary-navy);margin-bottom:20px;"><i
                             class="fas fa-binoculars"></i></div>
                     <h4>VOIR</h4>
-                    <p style="color:var(--text-grey);">Installer les capteurs. Mesurer ce qui existe vraiment, pas ce
+                    <p style="color:var(--text-grey);">Installer les capteurs. Mesurer ce qui existe vraiment, pas
+                        ce
                         qu'on suppose. Audit initial complet.</p>
                 </div>
                 <div
@@ -368,7 +440,8 @@
                     <div style="font-size:2.5rem;color:var(--charcoal);margin-bottom:20px;"><i
                             class="fas fa-chess-king"></i></div>
                     <h4>DÉCIDER</h4>
-                    <p style="color:var(--text-grey);">Arbitrer sur des faits, pas sur des ressentis. Chaque décision
+                    <p style="color:var(--text-grey);">Arbitrer sur des faits, pas sur des ressentis. Chaque
+                        décision
                         tracée, chaque impact mesuré.</p>
                 </div>
             </div>
@@ -377,7 +450,8 @@
                     <div style="flex:1;min-width:300px;">
                         <h3>Le site pilote</h3>
                         <p style="color:var(--text-grey);line-height:1.8;">
-                            Notre méthodologie n'est pas née dans un bureau de consulting. Elle a été forgée, testée et
+                            Notre méthodologie n'est pas née dans un bureau de consulting. Elle a été forgée, testée
+                            et
                             affinée pendant plus d'une décennie sur un site pilote réel, dans les conditions
                             d'exploitation les plus exigeantes du secteur.
                         </p>
@@ -387,7 +461,8 @@
                             failles entre les outils.
                         </p>
                         <div style="margin-top:25px;display:flex;gap:15px;flex-wrap:wrap;">
-                            <span class="tag" style="background:rgba(14,30,54,0.1);color:var(--primary-navy);">11 ans de
+                            <span class="tag" style="background:rgba(14,30,54,0.1);color:var(--primary-navy);">11
+                                ans de
                                 données réelles</span>
                         </div>
                     </div>
@@ -415,17 +490,21 @@
                         style="background:rgba(14,30,54,0.1);color:var(--primary-navy);margin-bottom:25px;display:inline-block;">Fondateur
                         CAPSO · Expert Transport Sanitaire</span>
                     <p style="color:var(--text-grey);line-height:1.8;margin-bottom:20px;">
-                        11 ans dans les opérations du transport sanitaire. Chaque poste de la chaîne a été occupé — de
-                        l'ambulancier à la direction stratégique. Cette trajectoire n'est pas un CV, c'est la source de
+                        11 ans dans les opérations du transport sanitaire. Chaque poste de la chaîne a été occupé —
+                        de
+                        l'ambulancier à la direction stratégique. Cette trajectoire n'est pas un CV, c'est la source
+                        de
                         légitimité de tout ce que CAPSO propose.
                     </p>
                     <p style="color:var(--text-grey);line-height:1.8;margin-bottom:30px;">
-                        La conviction est simple : les dirigeants du secteur méritent des outils conçus par des gens qui
+                        La conviction est simple : les dirigeants du secteur méritent des outils conçus par des gens
+                        qui
                         ont vécu leurs contraintes, pas par des développeurs qui les ont observées de loin.
                     </p>
                     <blockquote
                         style="border-left:4px solid var(--accent-gold);padding-left:25px;font-style:italic;font-size:1.1rem;color:var(--primary-navy);font-weight:600;">
-                        "On structure vos bases. On installe les capteurs. On construit votre croissance sur des faits."
+                        "On structure vos bases. On installe les capteurs. On construit votre croissance sur des
+                        faits."
                     </blockquote>
                 </div>
             </div>
@@ -433,11 +512,12 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section-padding bg-navy text-white">
+    <section id="contact-section" class="section-padding bg-navy text-white">
         <div class="container">
             <div class="section-header text-center">
                 <h2 class="section-title" style="color:white;">Passons à l'action</h2>
-                <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Votre audit de performance est gratuit.
+                <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Votre audit de performance est
+                    gratuit.
                     Sans engagement. Réponse sous 24h.</p>
             </div>
             <div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
@@ -470,7 +550,8 @@
                                 3</div>
                             <div>
                                 <h4 style="color:white;">Résultats mesurables</h4>
-                                <p style="opacity:0.7;">On ne livre pas des recommandations. On installe des mécanismes
+                                <p style="opacity:0.7;">On ne livre pas des recommandations. On installe des
+                                    mécanismes
                                     qui produisent des résultats vérifiables.</p>
                             </div>
                         </div>
@@ -499,7 +580,8 @@
                         </a>
                     </div>
                     <div style="margin-top:35px;padding-top:35px;border-top:1px solid rgba(255,255,255,0.1);">
-                        <a href="#audit" class="cta-button-primary" style="width:100%;justify-content:center;">
+                        <a href="#" onclick="openAuditModal();return false;" class="cta-button-primary"
+                            style="width:100%;justify-content:center;">
                             <i class="fas fa-calendar-check"></i>
                             Planifier mon audit gratuit
                         </a>
@@ -546,7 +628,7 @@
                     <h4 style="margin-bottom:20px;">Contact</h4>
                     <ul class="footer-links">
                         <li><a href="mailto:dir.capso@gmail.com">dir.capso@gmail.com</a></li>
-                        <li><a href="#audit">Demander un audit</a></li>
+                        <li><a href="#" onclick="openAuditModal();return false;">Demander un audit</a></li>
                         <li><a href="pages/mentions-legales.html">Mentions légales</a></li>
                         <li><a href="pages/confidentialite.html">Confidentialité</a></li>
                     </ul>
