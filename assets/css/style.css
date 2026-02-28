@@ -180,7 +180,7 @@ object {
 
 /* --- NAVIGATION --- */
 .main-nav {
-    background: var(--white);
+    background: var(--primary-navy);
     box-shadow: var(--shadow-sm);
     position: fixed;
     width: 100%;
@@ -202,19 +202,28 @@ object {
 
 .nav-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
-    gap: 0;
 }
 
-/* .nav-brand supprimé — logo retiré de toutes les pages */
+/* .nav-brand re-activé avec le nouveau logo capsoland.png */
 .nav-brand {
-    display: none;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.nav-brand:hover {
+    opacity: 0.8;
 }
 
 .nav-logo {
-    display: none;
+    height: 35px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    /* Logo blanc sur fond bleu/navy */
 }
 
 .brand-name {
@@ -241,7 +250,7 @@ object {
 }
 
 .nav-link {
-    color: var(--primary-navy);
+    color: var(--white);
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.95rem;
@@ -297,7 +306,7 @@ object {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--primary-navy);
+    color: var(--white);
     cursor: pointer;
     width: 44px;
     height: 44px;
@@ -341,11 +350,11 @@ object {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(14, 30, 54, 0.9), rgba(14, 30, 54, 0.8)),
-        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-    color: var(--white);
+    background: var(--white);
+    color: var(--primary-navy);
     margin-top: 0;
-    padding-top: 80px;
+    padding-top: 120px;
+    padding-bottom: 80px;
 }
 
 .hero-content {
@@ -358,13 +367,27 @@ object {
 }
 
 .hero-logo-container {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    animation: fadeInDown 1s ease-out;
 }
 
 .hero-logo {
-    height: 100px;
-    margin: 0 auto 30px;
-    filter: brightness(0) invert(1);
+    height: 120px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .main-title {
@@ -414,7 +437,8 @@ object {
     font-size: 1.4rem;
     font-weight: 300;
     margin-bottom: 50px;
-    opacity: 0.9;
+    opacity: 0.8;
+    color: var(--charcoal);
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -436,7 +460,7 @@ object {
     justify-content: center;
     gap: 12px;
     padding: 18px 35px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 1rem;
@@ -462,13 +486,13 @@ object {
 
 .cta-button-secondary {
     background: transparent;
-    border: 2px solid var(--white);
-    color: var(--white);
+    border: 2px solid var(--primary-navy);
+    color: var(--primary-navy);
 }
 
 .cta-button-secondary:hover {
-    background: var(--white);
-    color: var(--primary-navy);
+    background: var(--primary-navy);
+    color: var(--white);
     transform: translateY(-3px);
 }
 
@@ -476,7 +500,7 @@ object {
     display: flex;
     justify-content: center;
     gap: 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(14, 30, 54, 0.1);
     padding-top: 40px;
     flex-wrap: wrap;
 }
@@ -497,7 +521,7 @@ object {
 
 .stat-label {
     font-size: 0.9rem;
-    opacity: 0.8;
+    color: var(--text-grey);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 10px;
