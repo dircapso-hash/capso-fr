@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales — CAPSO</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #1C3252;
+            --navy-body: #374B66;
+            --navy-soft: #4A5867;
+            --gold: #C1A253;
+            --gold-muted: #A88A47;
+            --white: #FFFFFF;
+            --bg-light: #F4F6F9;
+            --radius: 6px;
+            --shadow: 0 4px 16px rgba(28, 50, 82, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--bg-light);
+            color: var(--navy-body);
+            line-height: 1.7;
+        }
+
+        /* NAV */
+        .top-nav {
+            background: var(--navy);
+            padding: 16px 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.2s;
+        }
+
+        .top-nav a:hover {
+            color: var(--gold);
+        }
+
+        .top-nav .sep {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .top-nav .brand {
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* HERO */
+        .page-hero {
+            background: var(--navy);
+            padding: 60px 40px 50px;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .page-hero .label {
+            display: inline-block;
+            background: rgba(193, 162, 83, 0.15);
+            color: var(--gold);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .page-hero .update {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        /* LAYOUT */
+        .page-layout {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            position: sticky;
+            top: 30px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: var(--navy);
+            padding: 16px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .sidebar nav a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--navy-soft);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--bg-light);
+            transition: all 0.2s;
+        }
+
+        .sidebar nav a:hover {
+            background: var(--bg-light);
+            color: var(--navy);
+            padding-left: 26px;
+        }
+
+        .sidebar nav a i {
+            color: var(--gold);
+            margin-right: 8px;
+            width: 14px;
+        }
+
+        /* CONTENT */
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .section-block {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .section-block-header {
+            background: var(--navy);
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-block-header i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .section-block-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: white;
+            letter-spacing: 0.03em;
+        }
+
+        .section-block-body {
+            padding: 30px;
+        }
+
+        .section-block-body p {
+            margin-bottom: 14px;
+            color: var(--navy-body);
+            font-size: 0.95rem;
+        }
+
+        .section-block-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-block-body strong {
+            color: var(--navy);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .info-item {
+            background: var(--bg-light);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .info-item .label-small {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold-muted);
+            margin-bottom: 6px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .info-item .value {
+            font-size: 0.9rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .footer-legal {
+            background: var(--navy);
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            margin-top: 60px;
+        }
+
+        .footer-legal a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-nav">
+        <a href="../index.html" class="brand"><i class="fas fa-arrow-left" style="margin-right:8px;"></i>CAPSO</a>
+        <span class="sep">·</span>
+        <a href="../index.html">Accueil</a>
+        <span class="sep">/</span>
+        <span style="color:rgba(255,255,255,0.9);font-size:0.85rem;">Mentions légales</span>
+    </div>
+
+    <div class="page-hero">
+        <div class="label"><i class="fas fa-balance-scale" style="margin-right:6px;"></i>Informations légales</div>
+        <h1>Mentions Légales</h1>
+        <p class="update">Dernière mise à jour : mars 2026</p>
+    </div>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header"><i class="fas fa-list" style="margin-right:8px;"></i>Sommaire</div>
+            <nav>
+                <a href="#editeur"><i class="fas fa-building"></i>Éditeur du site</a>
+                <a href="#hebergement"><i class="fas fa-server"></i>Hébergement</a>
+                <a href="#propriete"><i class="fas fa-copyright"></i>Propriété intellectuelle</a>
+                <a href="#responsabilite"><i class="fas fa-shield-alt"></i>Responsabilité</a>
+                <a href="#liens"><i class="fas fa-link"></i>Liens externes</a>
+                <a href="#droit"><i class="fas fa-gavel"></i>Droit applicable</a>
+            </nav>
+        </aside>
+
+        <div class="content">
+
+            <!-- ÉDITEUR -->
+            <div class="section-block" id="editeur">
+                <div class="section-block-header">
+                    <i class="fas fa-building"></i>
+                    <h2>Éditeur du site</h2>
+                </div>
+                <div class="section-block-body">
+                    <p>Le site <strong>capsops.fr</strong> est édité par :</p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="label-small">Dénomination sociale</div>
+                            <div class="value">CAPSO SASU</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Forme juridique</div>
+                            <div class="value">SASU (Société par Actions Simplifiée Unipersonnelle)</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Capital social</div>
+                            <div class="value">1 000 €</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">SIREN</div>
+                            <div class="value">en cours d'immatriculation</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Siège social</div>
+                            <div class="value">ZA Les Vairies, 7 Rue Maurice Chauvin, 35190 Tinténiac</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Directeur de la publication</div>
+                            <div class="value">Grégory Poupard</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Email de contact</div>
+                            <div class="value">g.poupard@capsops.fr</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Téléphone</div>
+                            <div class="value">06 65 78 54 06</div>
+                        </div>
+                    </div>
+                    <p style="margin-top:20px;font-size:0.85rem;color:var(--navy-soft);">CAPSO est une structure
+                        indépendante, non rattachée à un éditeur logiciel tiers. Aucune donnée collectée via ce site
+                        n'est transmise à des partenaires commerciaux.</p>
+                </div>
+            </div>
+
+            <!-- HÉBERGEMENT -->
+            <div class="section-block" id="hebergement">
+                <div class="section-block-header">
+                    <i class="fas fa-server"></i>
+                    <h2>Hébergement</h2>
+                </div>
+                <div class="section-block-body">
+                    <p>Le site <strong>capsops.fr</strong> est hébergé par :</p>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="label-small">Prestataire actuel</div>
+                            <div class="value">Netlify, Inc. <span
+                                    style="font-weight:normal; font-size:0.8rem; color:var(--navy-soft);"><br>(transition
+                                    prévue vers o2switch)</span></div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Siège</div>
+                            <div class="value">44 Montgomery Street, Suite 300 — San Francisco, CA 94104, États-Unis
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Site</div>
+                            <div class="value">www.netlify.com</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="label-small">Localisation données</div>
+                            <div class="value">Serveurs CDN internationaux (dont UE)</div>
+                        </div>
+                    </div>
+                    <p style="margin-top:20px;font-size:0.85rem;color:var(--navy-soft);">Netlify est certifié conforme
+                        au RGPD et dispose d'un Data Processing Agreement (DPA) disponible sur leur site. Les fichiers
+                        statiques du site ne contiennent aucune donnée personnelle.</p>
+                </div>
+            </div>
+
+            <!-- PROPRIÉTÉ INTELLECTUELLE -->
+            <div class="section-block" id="propriete">
+                <div class="section-block-header">
+                    <i class="fas fa-copyright"></i>
+                    <h2>Propriété intellectuelle</h2>
+                </div>
+                <div class="section-block-body">
+                    <p>L'ensemble des éléments constituant le site <strong>capsops.fr</strong> — textes, architecture
+                        éditoriale, méthodologie, dénominations, marque CAPSO, logo, charte graphique, outils SaaS
+                        (CapsoTime, CapsoScan) et leur documentation — sont la propriété exclusive de <strong>CAPSO
+                            SASU</strong> et sont protégés par le droit de la propriété intellectuelle en vigueur en
+                        France.</p>
+                    <p>Toute reproduction, représentation, diffusion ou exploitation, totale ou partielle, de ces
+                        éléments sans autorisation écrite préalable de CAPSO SASU est strictement interdite et
+                        constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la
+                        propriété intellectuelle.</p>
+                    <p>La méthodologie <strong>VOIR · ANTICIPER · DÉCIDER</strong>, les contenus pédagogiques de CAPSO
+                        Academy et les algorithmes de calcul de CapsoTime constituent des savoir-faire propriétaires.
+                        Leur reproduction ou adaptation sans accord préalable est prohibée.</p>
+                    <p>Les demandes d'autorisation de reproduction ou de citation peuvent être adressées à :
+                        <strong>g.poupard@capsops.fr</strong>
+                    </p>
+                </div>
+            </div>
+
+            <!-- RESPONSABILITÉ -->
+            <div class="section-block" id="responsabilite">
+                <div class="section-block-header">
+                    <i class="fas fa-shield-alt"></i>
+                    <h2>Limitation de responsabilité</h2>
+                </div>
+                <div class="section-block-body">
+                    <p>Les informations diffusées sur <strong>capsops.fr</strong> sont fournies à titre indicatif et ne
+                        sauraient se substituer à un conseil juridique, comptable, social ou médical personnalisé.</p>
+                    <p>CAPSO SASU s'efforce de maintenir les informations publiées exactes et à jour, mais ne garantit
+                        pas l'exhaustivité ou l'absence d'erreur des contenus. Les textes réglementaires (convention
+                        collective du transport sanitaire, Code du travail, référentiels CPAM) évoluant régulièrement,
+                        il appartient à chaque dirigeant de vérifier les dispositions applicables à sa situation.</p>
+                    <p>CAPSO SASU ne saurait être tenue responsable de tout préjudice direct ou indirect résultant de
+                        l'utilisation du site ou de la mise en œuvre des informations publiées, ni de tout
+                        dysfonctionnement technique indépendant de sa volonté (interruption de service, attaque
+                        informatique, indisponibilité du réseau).</p>
+                </div>
+            </div>
+
+            <!-- LIENS EXTERNES -->
+            <div class="section-block" id="liens">
+                <div class="section-block-header">
+                    <i class="fas fa-link"></i>
+                    <h2>Liens hypertextes</h2>
+                </div>
+                <div class="section-block-body">
+                    <p>Le site <strong>capsops.fr</strong> peut contenir des liens vers des sites tiers (Calendly,
+                        LinkedIn, etc.). CAPSO SASU n'exerce aucun contrôle sur ces sites et décline toute
+                        responsabilité quant à leurs contenus, pratiques de confidentialité ou conditions d'utilisation.
+                    </p>
+                    <p>La création de liens hypertextes vers capsops.fr est autorisée sous réserve qu'elle ne porte pas
+                        atteinte à l'image de CAPSO, que le lien s'ouvre dans une nouvelle fenêtre et qu'il ne soit pas
+                        utilisé dans un contexte trompeur ou dénigrant. Tout lien en cadre (iframe) ou utilisation du
+                        logo CAPSO sur un site tiers requiert une autorisation écrite préalable.</p>
+                </div>
+            </div>
+
+            <!-- DROIT APPLICABLE -->
+            <div class="section-block" id="droit">
+                <div class="section-block-header">
+                    <i class="fas fa-gavel"></i>
+                    <h2>Droit applicable et juridiction compétente</h2>
+                </div>
+                <div class="section-block-body">
+                    <p>Le présent site et ses mentions légales sont soumis au <strong>droit français</strong>. En cas de
+                        litige relatif à l'utilisation du site ou à l'interprétation des présentes mentions légales, les
+                        tribunaux compétents dans le ressort du siège social de CAPSO SASU (Tinténiac, Ille-et-Vilaine)
+                        seront seuls habilités à connaître du différend, sauf disposition légale contraire.</p>
+                    <p>Pour tout réclamation ou demande d'information, nous vous invitons à nous contacter en priorité à
+                        l'adresse <strong>g.poupard@capsops.fr</strong> avant toute démarche contentieuse.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="footer-legal">
+        <p>© 2026 CAPSO SASU — Tous droits réservés &nbsp;·&nbsp; <a href="mentions-legales.html">Mentions légales</a>
+            &nbsp;·&nbsp; <a href="confidentialite.html">Confidentialité</a> &nbsp;·&nbsp; <a href="cgu.html">CGU</a>
+            &nbsp;·&nbsp; <a href="cookies.html">Cookies</a></p>
+    </div>
+
+</body>
+
+</html>
