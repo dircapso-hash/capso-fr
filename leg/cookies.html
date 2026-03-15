@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Cookies — CAPSO</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --navy:#1C3252;--navy-body:#374B66;--navy-soft:#4A5867;--gold:#C1A253;--gold-muted:#A88A47;--white:#FFFFFF;--bg-light:#F4F6F9;--radius:6px;--shadow:0 4px 16px rgba(28,50,82,0.12); }
+        * { margin:0;padding:0;box-sizing:border-box; }
+        body { font-family:'Open Sans',sans-serif;background:var(--bg-light);color:var(--navy-body);line-height:1.7; }
+        .top-nav { background:var(--navy);padding:16px 40px;display:flex;align-items:center;gap:20px; }
+        .top-nav a { color:rgba(255,255,255,0.7);text-decoration:none;font-size:0.85rem;font-family:'Montserrat',sans-serif;transition:color 0.2s; }
+        .top-nav a:hover { color:var(--gold); }
+        .top-nav .sep { color:rgba(255,255,255,0.3); }
+        .page-hero { background:var(--navy);padding:60px 40px 50px;text-align:center;border-bottom:3px solid var(--gold); }
+        .page-hero .label { display:inline-block;background:rgba(193,162,83,0.15);color:var(--gold);font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:6px 16px;border-radius:3px;margin-bottom:20px; }
+        .page-hero h1 { font-family:'Montserrat',sans-serif;font-weight:800;font-size:2.2rem;color:white;margin-bottom:12px; }
+        .page-hero .update { color:rgba(255,255,255,0.5);font-size:0.85rem; }
+        .page-layout { max-width:900px;margin:50px auto;padding:0 24px;display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start; }
+        @media(max-width:768px){.page-layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+        .sidebar { position:sticky;top:30px;background:white;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden; }
+        .sidebar-header { background:var(--navy);padding:16px 20px;font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold); }
+        .sidebar nav a { display:block;padding:12px 20px;color:var(--navy-soft);text-decoration:none;font-size:0.85rem;border-bottom:1px solid var(--bg-light);transition:all 0.2s; }
+        .sidebar nav a:hover { background:var(--bg-light);color:var(--navy);padding-left:26px; }
+        .sidebar nav a i { color:var(--gold);margin-right:8px;width:14px; }
+        .content { display:flex;flex-direction:column;gap:30px; }
+        .section-block { background:white;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden; }
+        .section-block-header { background:var(--navy);padding:20px 30px;display:flex;align-items:center;gap:14px; }
+        .section-block-header i { color:var(--gold);font-size:1.1rem; }
+        .section-block-header h2 { font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:white;letter-spacing:0.03em; }
+        .section-block-body { padding:30px; }
+        .section-block-body p { margin-bottom:14px;color:var(--navy-body);font-size:0.95rem; }
+        .section-block-body p:last-child { margin-bottom:0; }
+        .section-block-body strong { color:var(--navy); }
+        .cookie-table { width:100%;border-collapse:collapse;margin-top:16px;font-size:0.87rem; }
+        .cookie-table th { background:var(--navy);color:white;padding:12px 16px;text-align:left;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.78rem;letter-spacing:0.05em; }
+        .cookie-table td { padding:12px 16px;border-bottom:1px solid var(--bg-light);vertical-align:top; }
+        .cookie-table tr:last-child td { border-bottom:none; }
+        .cookie-table tr:nth-child(even) td { background:rgba(244,246,249,0.5); }
+        .badge { display:inline-block;padding:3px 10px;border-radius:3px;font-size:0.72rem;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:0.05em; }
+        .badge-exempt { background:rgba(28,50,82,0.1);color:var(--navy); }
+        .badge-tiers { background:rgba(193,162,83,0.15);color:var(--gold-muted); }
+        .badge-analytique { background:rgba(74,88,103,0.1);color:var(--navy-soft); }
+        .alert-box { background:rgba(193,162,83,0.08);border:1px solid rgba(193,162,83,0.3);border-radius:var(--radius);padding:20px;margin-top:16px;display:flex;gap:14px; }
+        .alert-box i { color:var(--gold);font-size:1.2rem;flex-shrink:0;margin-top:2px; }
+        .alert-box p { font-size:0.88rem;color:var(--navy-body);margin:0; }
+        .success-box { background:rgba(28,50,82,0.05);border:1px solid rgba(28,50,82,0.15);border-radius:var(--radius);padding:24px;margin-top:10px;display:flex;gap:16px;align-items:flex-start; }
+        .success-box i { color:var(--navy);font-size:1.3rem;flex-shrink:0;margin-top:2px; }
+        .success-box strong { color:var(--navy);display:block;margin-bottom:6px; }
+        .success-box p { font-size:0.88rem;color:var(--navy-body);margin:0; }
+        .browser-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px; }
+        @media(max-width:600px){.browser-grid{grid-template-columns:1fr;}}
+        .browser-item { background:var(--bg-light);border-radius:var(--radius);padding:14px 18px;display:flex;align-items:center;gap:12px; }
+        .browser-item i { color:var(--gold);font-size:1rem;width:20px; }
+        .browser-item a { color:var(--navy);font-size:0.85rem;font-weight:600;text-decoration:none; }
+        .browser-item a:hover { color:var(--gold); }
+        .footer-legal { background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:30px 20px;font-size:0.8rem;margin-top:60px; }
+        .footer-legal a { color:var(--gold);text-decoration:none; }
+    </style>
+</head>
+<body>
+
+<div class="top-nav">
+    <a href="../index.html"><i class="fas fa-arrow-left" style="margin-right:8px;"></i>CAPSO</a>
+    <span class="sep">·</span>
+    <a href="../index.html">Accueil</a>
+    <span class="sep">/</span>
+    <span style="color:rgba(255,255,255,0.9);font-size:0.85rem;">Politique de cookies</span>
+</div>
+
+<div class="page-hero">
+    <div class="label"><i class="fas fa-cookie-bite" style="margin-right:6px;"></i>Traceurs & Cookies</div>
+    <h1>Politique de Cookies</h1>
+    <p class="update">Dernière mise à jour : mars 2026 — Conforme aux recommandations CNIL</p>
+</div>
+
+<div class="page-layout">
+    <aside class="sidebar">
+        <div class="sidebar-header"><i class="fas fa-list" style="margin-right:8px;"></i>Sommaire</div>
+        <nav>
+            <a href="#quoi"><i class="fas fa-question-circle"></i>Qu'est-ce qu'un cookie ?</a>
+            <a href="#utilises"><i class="fas fa-list-ul"></i>Cookies utilisés</a>
+            <a href="#tiers"><i class="fas fa-external-link-alt"></i>Services tiers</a>
+            <a href="#gestion"><i class="fas fa-sliders-h"></i>Gérer vos choix</a>
+            <a href="#navigateurs"><i class="fas fa-globe"></i>Paramètres navigateur</a>
+            <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+        </nav>
+    </aside>
+
+    <div class="content">
+
+        <!-- QU'EST-CE QU'UN COOKIE -->
+        <div class="section-block" id="quoi">
+            <div class="section-block-header"><i class="fas fa-question-circle"></i><h2>Qu'est-ce qu'un cookie ?</h2></div>
+            <div class="section-block-body">
+                <p>Un cookie (ou traceur) est un petit fichier texte déposé sur votre terminal (ordinateur, smartphone, tablette) lors de la visite d'un site internet. Il permet au site de mémoriser des informations sur votre navigation pendant une durée définie.</p>
+                <p>Certains cookies sont indispensables au fonctionnement technique du site (<em>cookies strictement nécessaires</em>) et ne requièrent pas votre consentement préalable. D'autres, destinés à mesurer l'audience ou à vous proposer des fonctionnalités tierces, nécessitent votre accord préalable conformément à la <strong>directive ePrivacy</strong> et aux recommandations de la CNIL.</p>
+                <div class="success-box">
+                    <i class="fas fa-check-shield"></i>
+                    <div>
+                        <strong>Approche CAPSO : minimisation stricte</strong>
+                        <p>Le site capso.fr est un site statique (HTML/CSS/JS) hébergé sur Netlify. Il ne dépose <strong>aucun cookie publicitaire, aucun cookie de ciblage, aucun pixel de tracking commercial</strong>. Les seuls traceurs présents sont détaillés ci-dessous.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COOKIES UTILISÉS -->
+        <div class="section-block" id="utilises">
+            <div class="section-block-header"><i class="fas fa-list-ul"></i><h2>Cookies et traceurs utilisés sur capso.fr</h2></div>
+            <div class="section-block-body">
+                <table class="cookie-table">
+                    <thead>
+                        <tr>
+                            <th>Nom / Origine</th>
+                            <th>Finalité</th>
+                            <th>Durée</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Netlify CDN</strong></td>
+                            <td>Gestion de session technique, sécurité et délivrance des pages. Aucune donnée personnelle identifiante collectée.</td>
+                            <td>Session</td>
+                            <td><span class="badge badge-exempt">Strictement nécessaire</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google Fonts</strong><br><small>(fonts.googleapis.com)</small></td>
+                            <td>Chargement des polices de caractères utilisées sur le site (Montserrat, Open Sans). Peut transmettre l'IP au CDN Google.</td>
+                            <td>1 an</td>
+                            <td><span class="badge badge-tiers">Tiers fonctionnel</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Font Awesome CDN</strong><br><small>(cdnjs.cloudflare.com)</small></td>
+                            <td>Chargement des icônes du site. Peut transmettre l'IP au CDN Cloudflare.</td>
+                            <td>1 an</td>
+                            <td><span class="badge badge-tiers">Tiers fonctionnel</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Calendly</strong><br><small>(calendly.com)</small></td>
+                            <td>Outil de prise de rendez-vous en ligne. Calendly dépose ses propres cookies lors de l'ouverture de son interface. Voir la politique de Calendly.</td>
+                            <td>Variable (Calendly)</td>
+                            <td><span class="badge badge-tiers">Tiers — consentement requis</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="alert-box" style="margin-top:20px;">
+                    <i class="fas fa-info-circle"></i>
+                    <p><strong>Aucune régie publicitaire, aucun pixel Meta/Google Ads, aucun outil de retargeting</strong> n'est actif sur capso.fr. CAPSO ne fait pas de publicité comportementale et n'a aucune raison d'en faire.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES TIERS -->
+        <div class="section-block" id="tiers">
+            <div class="section-block-header"><i class="fas fa-external-link-alt"></i><h2>Services tiers et leurs politiques</h2></div>
+            <div class="section-block-body">
+                <p>Les services tiers intégrés au site (Google Fonts, Font Awesome, Calendly) sont soumis à leurs propres politiques de confidentialité. CAPSO ne contrôle pas les traitements effectués par ces tiers.</p>
+                <p>Vous pouvez consulter leurs politiques respectives :</p>
+                <div class="browser-grid">
+                    <div class="browser-item">
+                        <i class="fab fa-google"></i>
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google — Politique de confidentialité →</a>
+                    </div>
+                    <div class="browser-item">
+                        <i class="fas fa-font-awesome-flag"></i>
+                        <a href="https://fontawesome.com/privacy" target="_blank" rel="noopener">Font Awesome / Cloudflare →</a>
+                    </div>
+                    <div class="browser-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <a href="https://calendly.com/privacy" target="_blank" rel="noopener">Calendly — Privacy Policy →</a>
+                    </div>
+                    <div class="browser-item">
+                        <i class="fas fa-server"></i>
+                        <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Netlify — Privacy Policy →</a>
+                    </div>
+                </div>
+                <p style="margin-top:16px;font-size:0.85rem;color:var(--navy-soft);">Si vous souhaitez éviter tout dépôt de traceur par ces services, vous pouvez les bloquer via les paramètres de votre navigateur ou un bloqueur de contenu (uBlock Origin, Brave, etc.) sans que cela n'empêche la consultation de capso.fr.</p>
+            </div>
+        </div>
+
+        <!-- GESTION DES CHOIX -->
+        <div class="section-block" id="gestion">
+            <div class="section-block-header"><i class="fas fa-sliders-h"></i><h2>Gérer vos choix</h2></div>
+            <div class="section-block-body">
+                <p>Conformément aux recommandations de la CNIL, vous disposez de la faculté d'accepter ou de refuser les cookies non strictement nécessaires. Sur capso.fr, la seule catégorie concernée est le cookie de Calendly, activé uniquement si vous cliquez sur un lien de prise de rendez-vous.</p>
+                <p>Vous pouvez exercer vos choix :</p>
+                <ul style="margin-left:20px;margin-top:10px;">
+                    <li style="margin-bottom:8px;">En ne cliquant pas sur les liens Calendly si vous ne souhaitez pas que cet outil dépose des traceurs ;</li>
+                    <li style="margin-bottom:8px;">En paramétrant votre navigateur pour refuser tout ou partie des cookies (voir section suivante) ;</li>
+                    <li style="margin-bottom:8px;">En nous contactant à <strong>dir.capso@gmail.com</strong> pour toute question relative aux cookies.</li>
+                </ul>
+                <p style="margin-top:12px;font-size:0.85rem;color:var(--navy-soft);">Le refus des cookies tiers n'affecte pas votre navigation sur capso.fr ni la qualité des informations présentées. Aucune fonctionnalité essentielle du site ne dépend du consentement aux cookies tiers.</p>
+            </div>
+        </div>
+
+        <!-- PARAMÈTRES NAVIGATEUR -->
+        <div class="section-block" id="navigateurs">
+            <div class="section-block-header"><i class="fas fa-globe"></i><h2>Paramétrer votre navigateur</h2></div>
+            <div class="section-block-body">
+                <p>Chaque navigateur permet de configurer le traitement des cookies. Accédez aux paramètres de confidentialité de votre navigateur :</p>
+                <div class="browser-grid">
+                    <div class="browser-item">
+                        <i class="fab fa-chrome"></i>
+                        <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a>
+                    </div>
+                    <div class="browser-item">
+                        <i class="fab fa-firefox"></i>
+                        <a href="https://support.mozilla.org/fr/kb/effacer-cookies-donnees-site-firefox" target="_blank" rel="noopener">Mozilla Firefox</a>
+                    </div>
+                    <div class="browser-item">
+                        <i class="fab fa-safari"></i>
+                        <a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a>
+                    </div>
+                    <div class="browser-item">
+                        <i class="fab fa-edge"></i>
+                        <a href="https://support.microsoft.com/fr-fr/microsoft-edge/supprimer-les-cookies-dans-microsoft-edge" target="_blank" rel="noopener">Microsoft Edge</a>
+                    </div>
+                </div>
+                <p style="margin-top:16px;font-size:0.85rem;color:var(--navy-soft);">La suppression ou le refus des cookies peut affecter certaines fonctionnalités des sites tiers que vous visitez, mais n'a pas d'impact sur capso.fr lui-même.</p>
+            </div>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="section-block" id="contact">
+            <div class="section-block-header"><i class="fas fa-envelope"></i><h2>Contact</h2></div>
+            <div class="section-block-body">
+                <p>Pour toute question relative à la présente politique de cookies ou pour exercer vos droits :</p>
+                <div class="alert-box">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <p><strong>CAPSO SASU — Grégory Poupard</strong><br>
+                        Email : <strong>dir.capso@gmail.com</strong><br>
+                        Téléphone : <strong>06 65 78 54 06</strong></p>
+                        <p style="margin-top:8px;">Pour toute réclamation non résolue, vous pouvez saisir la <strong>CNIL</strong> : <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener" style="color:var(--gold);font-weight:600;">www.cnil.fr/fr/plaintes</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer-legal">
+    <p>© 2026 CAPSO SASU — Tous droits réservés &nbsp;·&nbsp; <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp; <a href="confidentialite.html">Confidentialité</a> &nbsp;·&nbsp; <a href="cgu.html">CGU</a> &nbsp;·&nbsp; <a href="cookies.html">Cookies</a></p>
+</div>
+
+</body>
+</html>

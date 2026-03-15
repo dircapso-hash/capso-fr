@@ -98,47 +98,19 @@
     <div class="nav-overlay" id="navOverlay"></div>
 
     <!-- NAVIGATION -->
-    <nav class="main-nav" id="mainNav">
-        <div class="container nav-container">
-            <a href="index.html" class="nav-brand">
+    <nav class="nav" id="mainNav">
+        <div class="nav-inner">
+            <a href="#hero">
                 <img src="assets/images/capsoland.png" alt="CAPSO" class="nav-logo">
             </a>
             <ul class="nav-links" id="navLinks">
-                <!-- Drawer Header (mobile uniquement) -->
-                <li class="mobile-drawer-header">
-                    <img src="assets/images/capsoland.png" alt="CAPSO"
-                        style="height: 30px; width: auto; filter: brightness(0) invert(1);">
-                    <button id="navClose"
-                        style="background:rgba(255,255,255,0.15);border:none;color:white;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;"
-                        aria-label="Fermer le menu">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </li>
-                <span class="mobile-section-label">Navigation</span>
-                <li><a href="#constat" class="nav-link"><i class="fas fa-chart-bar"
-                            style="width:18px;color:var(--accent-gold);"></i>Le Constat</a></li>
-                <li><a href="#ecosysteme" class="nav-link"><i class="fas fa-layer-group"
-                            style="width:18px;color:var(--accent-gold);"></i>L'Écosystème</a></li>
-                <li><a href="pages/qui-sommes-nous.html" class="nav-link"><i class="fas fa-users"
-                            style="width:18px;color:var(--accent-gold);"></i>Qui sommes-nous ?</a></li>
-                <span class="mobile-section-label">Nos Applications</span>
-                <li><a href="pages/shiftlock.html" class="nav-link nav-app-link"><i class="fas fa-lock"
-                            style="width:18px;color:var(--accent-gold);"></i>ShiftLock <span
-                            style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
-                </li>
-                <li><a href="pages/upswipe.html" class="nav-link nav-app-link"><i class="fas fa-ambulance"
-                            style="width:18px;color:var(--accent-gold);"></i>UPSWIPE <span
-                            style="margin-left:auto;font-size:0.7rem;background:var(--accent-gold);color:white;padding:2px 8px;border-radius:10px;font-weight:700;">APP</span></a>
-                </li>
-                <li><a href="#contact-section" class="nav-link"><i class="fas fa-envelope"
-                            style="width:18px;color:var(--accent-gold);"></i>Contact</a></li>
-                <li><a href="#" onclick="openAuditModal();return false;" class="nav-cta nav-link"><i
-                            class="fas fa-search-dollar"></i>Audit Gratuit</a>
-                </li>
+                <li><a href="#constat"><i class="fas fa-chart-bar"></i> Le constat</a></li>
+                <li><a href="#ecosysteme"><i class="fas fa-layer-group"></i> L'écosystème</a></li>
+                <li><a href="#fondateur"><i class="fas fa-user-tie"></i> Qui sommes-nous ?</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
@@ -146,17 +118,10 @@
     <!-- HERO -->
     <section id="hero" class="hero-section">
         <div class="hero-content">
-            <div class="hero-logo-container">
-                <img src="assets/images/capsoland.png" alt="CAPSO Logo" class="hero-logo">
-            </div>
-            <h1 class="main-title">
-                <span class="title-line">L'ingénierie de la</span>
-                <span class="title-line text-gold">performance sanitaire.</span>
-            </h1>
-            <p class="subtitle">
-                Dans un secteur où l'urgence est la norme, nous construisons la structure qui permet de ne plus la
-                subir.
-            </p>
+
+            <h1 class="main-title">Votre entreprise mérite mieux que la survie.</h1>
+            <h2 class="hero-subtitle">Quand l'urgence devient la norme, la structure devient vitale.</h2>
+            <p class="hero-statement">CAPSO l'installe.</p>
             <div class="hero-cta-container">
                 <a href="#" onclick="openAuditModal();return false;" class="cta-button-primary">
                     <i class="fas fa-search-dollar"></i>
@@ -182,7 +147,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 
 

@@ -179,7 +179,7 @@ object {
 }
 
 /* --- NAVIGATION --- */
-.main-nav {
+.nav {
     background: var(--primary-navy);
     box-shadow: var(--shadow-sm);
     position: fixed;
@@ -194,17 +194,20 @@ object {
     overflow: hidden;
 }
 
-.main-nav.scrolled {
+.nav.scrolled {
     height: 70px;
     min-height: 70px;
     box-shadow: var(--shadow-md);
 }
 
-.nav-container {
+.nav-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 /* .nav-brand re-activé avec le nouveau logo capsoland.png */
@@ -220,10 +223,8 @@ object {
 }
 
 .nav-logo {
-    height: 35px;
+    height: 38px;
     width: auto;
-    filter: brightness(0) invert(1);
-    /* Logo blanc sur fond bleu/navy */
 }
 
 .brand-name {
@@ -249,7 +250,7 @@ object {
     display: none;
 }
 
-.nav-link {
+.nav-links a {
     color: var(--white);
     font-family: var(--font-heading);
     font-weight: 600;
@@ -259,12 +260,39 @@ object {
     position: relative;
     padding: 5px 0;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
 }
 
-.nav-link::after {
+.nav-links a i {
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+}
+
+.nav-cta {
+    background: var(--accent-gold);
+    color: var(--white) !important;
+    padding: 8px 18px !important;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: 700 !important;
+}
+
+.nav-cta:hover {
+    background: #b08d4b;
+    transform: translateY(-2px);
+}
+
+.nav-cta i {
+    color: var(--white) !important;
+}
+
+.nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     width: 0;
     height: 2px;
@@ -272,11 +300,11 @@ object {
     transition: width var(--transition);
 }
 
-.nav-link:hover {
+.nav-links a:not(.nav-cta):hover {
     color: var(--accent-gold);
 }
 
-.nav-link:hover::after {
+.nav-links a:not(.nav-cta):hover::after {
     width: 100%;
 }
 
@@ -353,7 +381,7 @@ object {
     background: var(--white);
     color: var(--primary-navy);
     margin-top: 0;
-    padding-top: 120px;
+    padding-top: 0px;
     padding-bottom: 80px;
 }
 
@@ -367,14 +395,14 @@ object {
 }
 
 .hero-logo-container {
-    margin-bottom: 30px;
+    margin-bottom: 16px;
     animation: fadeInDown 1s ease-out;
 }
 
 .hero-logo {
-    height: 120px;
+    height: 250px;
     width: auto;
-    margin: 0 auto;
+    margin: 0 auto 32px;
     display: block;
 }
 
@@ -391,9 +419,9 @@ object {
 }
 
 .main-title {
-    font-size: 4rem;
-    line-height: 1.1;
-    margin-bottom: 20px;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    line-height: 1.15;
+    margin-bottom: 10px;
     font-weight: 800;
 }
 
@@ -433,6 +461,28 @@ object {
     width: 100%;
 }
 
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    color: var(--primary-navy);
+    margin-bottom: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.75;
+    line-height: 1.5;
+}
+
+.hero-statement {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+    font-family: var(--font-heading);
+}
+
 .subtitle {
     font-size: 1.4rem;
     font-weight: 300;
@@ -448,7 +498,7 @@ object {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: 32px;
     flex-wrap: wrap;
 }
 
@@ -501,7 +551,7 @@ object {
     justify-content: center;
     gap: 60px;
     border-top: 1px solid rgba(14, 30, 54, 0.1);
-    padding-top: 40px;
+    padding-top: 24px;
     flex-wrap: wrap;
 }
 
@@ -1701,10 +1751,6 @@ html {
         width: 95%;
     }
 
-    h1 {
-        font-size: 3rem;
-    }
-
     h2 {
         font-size: 2.2rem;
     }
@@ -1898,17 +1944,6 @@ html {
     /* Correction : nav-app-link badge flex */
     .nav-link.nav-app-link {
         justify-content: flex-start;
-    }
-
-    .main-title {
-        font-size: 2.3rem;
-        line-height: 1.2;
-    }
-
-    .hero-mantra {
-        font-size: 1.1rem;
-        gap: 12px;
-        letter-spacing: 1px;
     }
 
     .subtitle {
@@ -2125,11 +2160,10 @@ html {
     }
 
     .hero-logo {
-        height: 70px;
+        height: 120px;
     }
 
     .main-title {
-        font-size: 1.9rem;
         line-height: 1.2;
     }
 
