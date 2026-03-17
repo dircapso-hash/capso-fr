@@ -278,51 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     */
 
-    // --- Splash Screen Vidéo ---
-    const splashScreen = document.getElementById('splashScreen');
-    const splashVideo = document.getElementById('splashVideo');
-    const skipSplashBtn = document.getElementById('skipSplash');
 
-    if (splashScreen) {
-        // ?intro=force dans l'URL pour rejouer l'intro (utile pour les tests)
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('intro') === 'force') {
-            sessionStorage.removeItem('capsoSplashSeen');
-        }
-
-        const hasSeenSplash = sessionStorage.getItem('capsoSplashSeen');
-
-        if (!hasSeenSplash) {
-            splashScreen.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-
-            // Bouton "Passer" visible après 1.5s
-            setTimeout(() => {
-                if (skipSplashBtn) skipSplashBtn.classList.add('visible');
-            }, 1500);
-
-            const hideSplashScreen = () => {
-                splashScreen.classList.add('hidden');
-                document.body.style.overflow = '';
-                sessionStorage.setItem('capsoSplashSeen', 'true');
-                setTimeout(() => { splashScreen.style.display = 'none'; }, 800);
-            };
-
-            if (splashVideo) {
-                splashVideo.addEventListener('ended', hideSplashScreen);
-                splashVideo.addEventListener('error', hideSplashScreen);
-                splashVideo.play();
-            } else {
-                setTimeout(hideSplashScreen, 4500);
-            }
-
-            if (skipSplashBtn) skipSplashBtn.addEventListener('click', hideSplashScreen);
-
-        } else {
-            splashScreen.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-    }
 
     // -------------------------------------------------------
     // Modal Audit / Contact — 100% natif, zéro dépendance

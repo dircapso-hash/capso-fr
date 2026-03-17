@@ -180,7 +180,7 @@ object {
 
 /* --- NAVIGATION --- */
 .nav {
-    background: var(--primary-navy);
+    background: var(--white);
     box-shadow: var(--shadow-sm);
     position: fixed;
     width: 100%;
@@ -201,13 +201,13 @@ object {
 }
 
 .nav-inner {
+    position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0;
 }
 
 /* .nav-brand re-activé avec le nouveau logo capsoland.png */
@@ -225,6 +225,7 @@ object {
 .nav-logo {
     height: 70px;
     width: auto;
+    flex-shrink: 0;
 }
 
 .brand-name {
@@ -242,6 +243,9 @@ object {
     align-items: center;
     list-style: none;
     flex-wrap: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Éléments drawer : masqués sur desktop */
@@ -251,7 +255,7 @@ object {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--primary-navy);
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.95rem;
@@ -2270,127 +2274,7 @@ html {
     }
 }
 
-/* --- SPLASH SCREEN --- */
-.splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #000;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
-}
 
-.splash-screen.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.splash-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.splash-logo {
-    font-size: 5rem;
-    color: #fff;
-    letter-spacing: 12px;
-    margin-bottom: 30px;
-    opacity: 0;
-    transform: scale(0.8);
-    animation: revealLogo 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.splash-mantra {
-    display: flex;
-    gap: 15px;
-    font-size: 1.5rem;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: 4px;
-}
-
-.splash-mantra span {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: revealWord 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.splash-line {
-    width: 0;
-    height: 2px;
-    background: var(--accent-gold);
-    margin-top: 40px;
-    animation: growLine 2s cubic-bezier(0.16, 1, 0.3, 1) forwards 1s;
-}
-
-.delay-1 {
-    animation-delay: 0.8s !important;
-}
-
-.delay-2 {
-    animation-delay: 1.1s !important;
-}
-
-.delay-3 {
-    animation-delay: 1.4s !important;
-}
-
-@keyframes revealLogo {
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes revealWord {
-    to {
-        opacity: 0.8;
-        transform: translateY(0);
-    }
-}
-
-@keyframes growLine {
-    to {
-        width: 150px;
-    }
-}
-
-.skip-splash-btn {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-family: var(--font-heading);
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: var(--transition);
-    opacity: 0;
-    visibility: hidden;
-    z-index: 10000;
-}
-
-.skip-splash-btn.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.skip-splash-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.8);
-}
 
 /* =====================================================
    MODAL AUDIT / CONTACT — Premium Native
