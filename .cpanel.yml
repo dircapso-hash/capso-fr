@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/qora8812/public_html/site
+    - /bin/cp -Rf $TRAVIS_BUILD_DIR/. $DEPLOYPATH
