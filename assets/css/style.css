@@ -1748,135 +1748,70 @@ html {
 
 @media (max-width: 768px) {
 
-    /* === MENU DRAWER MOBILE === */
-    .main-nav .nav-links {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: min(320px, 85vw);
-        height: 100vh;
-        height: 100dvh;
-        background: var(--white);
-        flex-direction: column;
-        padding: 0;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
-        z-index: 999;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        /* transform à la place de right pour éviter le débordement horizontal */
-        transform: translateX(100%);
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        gap: 0;
-        visibility: hidden;
+    /* Permet au dropdown de déborder sous la nav */
+    .nav {
+        overflow: visible;
     }
 
-    .main-nav .nav-links.active {
-        transform: translateX(0);
-        display: block;
-        visibility: visible;
+    /* === MENU DROPDOWN MOBILE === */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        transform: none;
+        flex-direction: column;
+        background: var(--white);
+        border-top: 3px solid var(--accent-gold);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        z-index: 999;
+        padding: 8px 0 16px;
+        gap: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
     }
 
     .nav-toggle {
         display: flex;
+        color: var(--primary-navy);
+        margin-left: auto;
     }
 
-    /* Header du drawer */
-    .nav-links .mobile-drawer-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 25px;
-        background: var(--primary-navy);
-        color: white;
-        border-bottom: 3px solid var(--accent-gold);
+    .nav-logo {
+        height: 40px;
     }
 
-    /* Sections du drawer */
-    .nav-links .mobile-section-label {
-        display: block;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: var(--text-grey);
-        padding: 20px 25px 8px;
-        background: var(--offwhite);
-    }
-
-    /* Liens standards */
     .nav-links li {
+        width: 100%;
         border-bottom: 1px solid rgba(14, 30, 54, 0.06);
     }
 
-    .nav-link {
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
         display: flex;
         align-items: center;
-        gap: 14px;
-        font-size: 1rem;
-        padding: 16px 25px;
-        border-bottom: none;
+        gap: 12px;
+        padding: 14px 20px;
+        font-size: 0.95rem;
         color: var(--primary-navy);
         font-weight: 600;
-        width: 100%;
-        transition: background 0.2s ease, padding-left 0.2s ease;
+        white-space: nowrap;
     }
 
-    .nav-link:hover,
-    .nav-link:active {
+    .nav-links a:hover,
+    .nav-links a:active {
         background: rgba(14, 30, 54, 0.04);
-        padding-left: 30px;
+        color: var(--accent-gold);
     }
 
-    /* Items apps (ShiftLock / UPSWIPE) */
-    .nav-link.nav-app-link {
-        background: rgba(197, 160, 89, 0.05);
-        border-left: 3px solid var(--accent-gold);
-        padding-left: 22px;
-    }
-
-    .nav-link.nav-app-link:hover,
-    .nav-link.nav-app-link:active {
-        background: rgba(197, 160, 89, 0.12);
-        padding-left: 28px;
-    }
-
-    /* CTA dans le drawer */
-    .nav-links .nav-cta {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        margin: 20px 20px 10px;
-        padding: 16px 20px;
-        border-radius: 8px;
-        background: var(--accent-gold);
-        color: white !important;
-        font-size: 1rem;
-        font-weight: 700;
-        text-align: center;
-        border-bottom: none !important;
-        border-left: none !important;
-    }
-
-    .nav-links .nav-cta:hover {
-        background: #b08d4b;
-        padding-left: 20px;
-    }
-
-    /* Supprimer le soulignement ::after dans le drawer */
-    .nav-link::after {
+    .nav-links a::after {
         display: none;
-    }
-
-    /* L'overflow est géré par le JS lors de l'ouverture du drawer */
-    .nav-overlay {
-        display: none;
-    }
-
-    /* Correction : nav-app-link badge flex */
-    .nav-link.nav-app-link {
-        justify-content: flex-start;
     }
 
     .subtitle {
@@ -2068,6 +2003,12 @@ html {
     .guarantee {
         flex-direction: row;
         gap: 12px;
+    }
+
+    /* Site pilote — grille inline → colonne unique */
+    .site-pilote-grid {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
     }
 }
 
